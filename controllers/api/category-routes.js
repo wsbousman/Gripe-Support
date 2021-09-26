@@ -79,7 +79,7 @@ router.put('/:id', (req, res) => {
             });
 });
 
-// Delet a category
+// Delete a category
 
 router.delete('/:id', (req, res) => {
     Category.destroy({
@@ -100,3 +100,4 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+module.exports = router; 
