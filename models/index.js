@@ -100,3 +100,4 @@ User.belongsToMany(Post, {
 });
 
 module.exports = { User, Post, Vote, Comment }
+
