@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS gs_db;  
+
+CREATE DATABASE gs_db;
