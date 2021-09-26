@@ -95,6 +95,36 @@ router.post('/', (req, res) => {
         });
 });
 
+// Add a hug to a post - must come before the /:id put request
+
+router.put('/giveHug', (req, res) => {
+    // First, create a new Hug in the hug model, then find the post that was given the hug, and return it with the new hug count. 
+    Hug.create({
+        user_id: req.body.user_id,
+        post_id: req.body.post_id,
+        category_id: req.body.category_id
+    })
+    .then(() => {
+        return Post.findOne({
+            where: {
+                id: req.body.post_id
+            },
+            attributes: [
+                'id',
+                'content',
+                'created_at',
+                'flagged',
+                [sequelize.literal('SELECT COUNT(*) FROM hug WHERE post.id = hug.post_id'), 'hug_count']
+            ]
+        })
+    })
+    .then(dbPostData => res.status(200).json(dbPostData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err); 
+    });
+});
+
 // Edit a post
 
 router.put('/:id', (req, res) => {
