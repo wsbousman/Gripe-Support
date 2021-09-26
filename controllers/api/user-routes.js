@@ -1,4 +1,5 @@
 const { User, Category, Post, Comment, Hug } = require('../../models');
+const sequelize = require('../../config/connection');
 const router = require('express').Router();
 
 // Get all users
@@ -8,8 +9,9 @@ router.get('/', (req, res) => {
         attributes: [
             'id',
             'username',
+            'admin',
             // Using raw MySQL syntax, we are grabbing the number of rows in the hug model where the user_id column value in the hug table is equal to the current user_id
-            [sequelize.literal('SELECT COUNT(*) FROM hug WHERE user.id = hug.user_id'), 'hug_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE user.id = hug.user_id)'), 'hug_count']
         ]
     })
         .then(dbUserData => res.json(dbUserData))
@@ -25,7 +27,8 @@ router.get('/:id', (req, res) => {
         attributes: [
             'id',
             'username',
-            [sequelize.literal('SELECT COUNT(*) FROM hug WHERE user.id = hug.user_id'), 'hug_count']
+            'admin',
+            [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE user.id = hug.user_id)'), 'hug_count']
         ],
         where: {
             id: req.params.id
@@ -91,8 +94,8 @@ router.put('/:id', (req, res) => {
     User.update(
         {
             username: req.body.username,
-            password: req.body.password
-            // ,admin: req.body.admin
+            password: req.body.password,
+            admin: req.body.admin
         },
         {
             individualHooks: true,
