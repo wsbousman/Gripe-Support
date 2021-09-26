@@ -1,5 +1,5 @@
 const User = require('./User');
-const Category = require('./Require');
+const Category = require('./Category');
 const Post = require('./Post');
 const Comment = require('./Comment');
 const Hug = require('./Hug');
@@ -99,5 +99,5 @@ User.belongsToMany(Post, {
     onDelete: 'SET NULL'
 });
 
-module.exports = { User, Post, Vote, Comment }
+module.exports = { User, Category, Post, Comment, Hug}
 

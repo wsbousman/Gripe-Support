@@ -1,4 +1,3 @@
-const { json } = require('sequelize/types');
 const { User, Category, Post, Comment, Hug } = require('../../models');
 const router = require('express').Router();
 

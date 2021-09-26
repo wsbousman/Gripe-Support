@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
-const exphbs = requires('express-handlebars');
+const exphbs = require('express-handlebars');
 
 
 const app = express();
@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-const routes = require('./controllers');
+const routes = require("./controllers");
 
 app.use(routes);
 
