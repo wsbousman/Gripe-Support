@@ -5,7 +5,12 @@ const router = require('express').Router();
 
 router.get('/', (req, res) => {
     User.findAll({
-        attributes: { exclude: ['password'] }
+        attributes: [
+            'id',
+            'username',
+            // Using raw MySQL syntax, we are grabbing the number of rows in the hug model where the user_id column value in the hug table is equal to the current user_id
+            [sequelize.literal('SELECT COUNT(*) FROM hug WHERE user.id = hug.user_id'), 'hug_count']
+        ]
     })
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -17,7 +22,11 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     User.findOne({
-        attributes: { exclude: ['password'] },
+        attributes: [
+            'id',
+            'username',
+            [sequelize.literal('SELECT COUNT(*) FROM hug WHERE user.id = hug.user_id'), 'hug_count']
+        ],
         where: {
             id: req.params.id
         },

@@ -4,7 +4,14 @@ const router = require('express').Router();
 // Get all categories
 
 router.get('/', (req, res) => {
-    Category.findAll({})
+    Category.findAll({
+        attributes: [
+            'id',
+            'name',
+            // Using raw MySQL syntax, we are grabbing the number of rows in the hug model where the category_id column value in the hug table is equal to the current category_id
+            [sequelize.literal('SELECT COUNT(*) FROM hug WHERE category.id = hug.category_id'), 'hug_count']
+        ]
+    })
         .then(dbCategoryData => res.status(200).json(dbCategoryData))
         .catch(err => {
             console.log(err);
@@ -19,6 +26,13 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
+        attributes: [
+            'id',
+            'name',
+            // Using raw MySQL syntax, we are grabbing the number of rows in the hug model where the category_id column value in the hug table is equal to the current category_id
+            [sequelize.literal('SELECT COUNT(*) FROM hug WHERE category.id = hug.category_id'), 'hug_count']
+        ],
+
         include: [
             {
                 model: Post,
@@ -66,17 +80,17 @@ router.put('/:id', (req, res) => {
                 id: req.params.id
             }
         })
-            .then(dbCategorydata => {
-                if(!dbCategorydata) {
-                    res.status(404).json({ message: 'No category found with that id' });
-                    return; 
-                }
-                res.status(200).json(dbCategorydata ); 
-            })
-            .catch(err => {
-                console.log(err);
-                res.status(500).json(err); 
-            });
+        .then(dbCategorydata => {
+            if (!dbCategorydata) {
+                res.status(404).json({ message: 'No category found with that id' });
+                return;
+            }
+            res.status(200).json(dbCategorydata);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // Delete a category
@@ -87,17 +101,17 @@ router.delete('/:id', (req, res) => {
             id: req.params.id
         }
     })
-    .then(dbCategoryData => {
-        if(!dbCategoryData) {
-            res.status(404).json({ message: 'No category found with that id' });
-            return;
-        }
-        res.status(200).json(dbCategoryData); 
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err); 
-    });
+        .then(dbCategoryData => {
+            if (!dbCategoryData) {
+                res.status(404).json({ message: 'No category found with that id' });
+                return;
+            }
+            res.status(200).json(dbCategoryData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
-module.exports = router; 
+module.exports = router;

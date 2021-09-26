@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
             // Using raw MySQL syntax, we are grabbing the number of rows in the hug model where the post_id column value in the hug table is equal to the current post_id
             [sequelize.literal('SELECT COUNT(*) FROM hug WHERE post.id = hug.post_id'), 'hug_count']
         ],
+        order: [['created_at', 'DESC']],
         include: [
             {
                 model: Comment,
@@ -128,7 +129,7 @@ router.delete('/:id', (req, res) => {
             id: req.params.id
         }
     })
-    .then(dbPostdata => {
+    .then(dbPostData => {
         if(!dbPostData) {
             res.status(404).json({ message: 'No post found with that id' });
             return; 
