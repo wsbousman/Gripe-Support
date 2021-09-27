@@ -1,5 +1,6 @@
 const { User, Category, Post, Comment, Hug } = require('../../models');
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 
 // Get all posts 
 
@@ -11,7 +12,7 @@ router.get('/', (req, res) => {
             'created_at',
             'flagged',
             // Using raw MySQL syntax, we are grabbing the number of rows in the hug model where the post_id column value in the hug table is equal to the current post_id
-            [sequelize.literal('SELECT COUNT(*) FROM hug WHERE post.id = hug.post_id'), 'hug_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE post.id = hug.post_id)'), 'hug_count']
         ],
         order: [['created_at', 'DESC']],
         include: [
@@ -49,7 +50,7 @@ router.get('/:id', (req, res) => {
             'created_at',
             'flagged',
             // Using raw MySQL syntax, we are grabbing the number of rows in the hug model where the post_id column value in the hug table is equal to the current post_id
-            [sequelize.literal('SELECT COUNT(*) FROM hug WHERE post.id = hug.post_id'), 'hug_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE post.id = hug.post_id)'), 'hug_count']
         ],
         include: [
             {

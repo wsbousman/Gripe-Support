@@ -1,5 +1,6 @@
 const { User, Category, Post, Comment, Hug } = require('../../models');
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 
 // Get all categories
 
@@ -9,7 +10,7 @@ router.get('/', (req, res) => {
             'id',
             'name',
             // Using raw MySQL syntax, we are grabbing the number of rows in the hug model where the category_id column value in the hug table is equal to the current category_id
-            [sequelize.literal('SELECT COUNT(*) FROM hug WHERE category.id = hug.category_id'), 'hug_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE category.id = hug.category_id)'), 'hug_count']
         ]
     })
         .then(dbCategoryData => res.status(200).json(dbCategoryData))
@@ -30,7 +31,7 @@ router.get('/:id', (req, res) => {
             'id',
             'name',
             // Using raw MySQL syntax, we are grabbing the number of rows in the hug model where the category_id column value in the hug table is equal to the current category_id
-            [sequelize.literal('SELECT COUNT(*) FROM hug WHERE category.id = hug.category_id'), 'hug_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE category.id = hug.category_id)'), 'hug_count']
         ],
 
         include: [

@@ -23,6 +23,6 @@ const routes = require("./controllers");
 app.use(routes);
 
 
-sequelize.sync( {force: false}).then(() => {
+sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Now live on ${PORT}! d(^~^)b`));
 });
