@@ -89,14 +89,14 @@ Post.belongsToMany(User, {
     through: Hug,
     as: 'hugged_posts',
     foreignKey: 'post_id',
-    onDelete: 'SET NULL'
+    onDelete: 'CASCADE'
 });
 
 User.belongsToMany(Post, {
     through: Hug,
     as: 'hugged_posts',
     foreignKey: 'user_id',
-    onDelete: 'SET NULL'
+    onDelete: 'CASCADE'
 });
 
 module.exports = { User, Category, Post, Comment, Hug}
