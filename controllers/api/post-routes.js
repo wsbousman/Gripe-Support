@@ -114,7 +114,7 @@ router.put('/giveHug', (req, res) => {
                 'content',
                 'created_at',
                 'flagged',
-                [sequelize.literal('SELECT COUNT(*) FROM hug WHERE post.id = hug.post_id'), 'hug_count']
+                [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE post.id = hug.post_id)'), 'hug_count']
             ]
         })
     })
