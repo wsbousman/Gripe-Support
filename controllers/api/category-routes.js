@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
             'id',
             'name',
             // Using raw MySQL syntax, we are grabbing the number of rows in the hug model where the category_id column value in the hug table is equal to the current category_id
-            [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE category.id = hug.category_id)'), 'hug_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM post WHERE category.id = post.category_id)'), 'post_count']
         ]
     })
         .then(dbCategoryData => res.status(200).json(dbCategoryData))
@@ -23,6 +23,9 @@ router.get('/', (req, res) => {
 // Get one category 
 
 router.get('/:id', (req, res) => {
+
+    
+
     Category.findOne({
         where: {
             id: req.params.id
@@ -31,7 +34,7 @@ router.get('/:id', (req, res) => {
             'id',
             'name',
             // Using raw MySQL syntax, we are grabbing the number of rows in the hug model where the category_id column value in the hug table is equal to the current category_id
-            [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE category.id = hug.category_id)'), 'hug_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM post WHERE category.id = post.category_id)'), 'post_count']
         ],
 
         include: [
