@@ -10,8 +10,6 @@ router.get('/', (req, res) => {
             'id',
             'username',
             'admin',
-            // Using raw MySQL syntax, we are grabbing the number of rows in the hug model where the user_id column value in the hug table is equal to the current user_id
-            [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE user.id = hug.user_id)'), 'hug_count']
         ]
     })
         .then(dbUserData => res.json(dbUserData))
@@ -23,11 +21,15 @@ router.get('/', (req, res) => {
 // Get one user
 
 router.get('/:id', (req, res) => {
+    
+    Post.sum('hug_count', {where: {'user_id': req.params.id}}).then(sum => console.log(sum));
+
     User.findOne({
         attributes: [
             'id',
             'username',
             'admin',
+            // Using raw MySQL syntax, we are grabbing the number of rows in the hug model where the user_id column value in the hug table is equal to the current user_id
             [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE user.id = hug.user_id)'), 'hug_count']
         ],
         where: {
@@ -42,20 +44,20 @@ router.get('/:id', (req, res) => {
                     attributes: ['id', 'name']
                 }
             },
-            {
-                model: Comment,
-                attributes: ['id', 'content', 'created_at'],
-                include: {
-                    model: Post,
-                    attributes: ['id', 'content']
-                }
-            },
-            {
-                model: Post,
-                attributes: ['id', 'content'],
-                through: Hug,
-                as: 'hugged_posts'
-            }
+            // {
+            //     model: Comment,
+            //     attributes: ['id', 'content', 'created_at'],
+            //     include: {
+            //         model: Post,
+            //         attributes: ['id', 'content']
+            //     }
+            // },
+            // {
+            //     model: Post,
+            //     attributes: ['id', 'content'],
+            //     through: Hug,
+            //     as: 'hugged_posts'
+            // }
         ]
     })
         .then(dbUserData => {
