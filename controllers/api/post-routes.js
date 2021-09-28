@@ -17,6 +17,10 @@ router.get('/', (req, res) => {
         order: [['created_at', 'DESC']],
         include: [
             {
+                model: Category,
+                attributes: ['name']
+            },
+            {
                 model: Comment,
                 attributes: ['id', 'content', 'created_at', 'post_id', 'user_id'],
                 include: {
@@ -53,6 +57,10 @@ router.get('/:id', (req, res) => {
             [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE post.id = hug.post_id)'), 'hug_count']
         ],
         include: [
+            {
+                model: Category,
+                attributes: ['name']
+            },
             {
                 model: Comment,
                 attributes: ['id', 'content', 'created_at', 'post_id', 'user_id'],
