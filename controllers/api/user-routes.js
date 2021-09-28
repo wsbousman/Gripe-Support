@@ -27,13 +27,13 @@ router.get('/:id', (req, res) => {
         attributes: [
             'id',
             'username',
-            'admin',
-            [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE user.id = hug.user_id)'), 'hug_count']
+            'admin'
         ],
         where: {
             id: req.params.id
         },
         include: [
+            
             {
                 model: Post,
                 attributes: ['id', 'content', 'created_at'],
@@ -42,14 +42,14 @@ router.get('/:id', (req, res) => {
                     attributes: ['id', 'name']
                 }
             },
-            {
-                model: Comment,
-                attributes: ['id', 'content', 'created_at'],
-                include: {
-                    model: Post,
-                    attributes: ['id', 'content']
-                }
-            },
+            // {
+            //     model: Comment,
+            //     attributes: ['id', 'content', 'created_at'],
+            //     include: {
+            //         model: Post,
+            //         attributes: ['id', 'content']
+            //     }
+            // },
             {
                 model: Post,
                 attributes: ['id', 'content'],
