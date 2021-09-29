@@ -1,4 +1,5 @@
 const { User, Category, Post, Comment, Hug } = require('../../models');
+const loggedIn = require('../../utils/loggedIn');
 const router = require('express').Router();
 
 // Get all comments
@@ -77,7 +78,7 @@ router.get('/:id', (req, res) => {
 
 // Create a comment
 
-router.post('/', (req, res) => {
+router.post('/', loggedIn, (req, res) => {
     Comment.create({
         content: req.body.content,
         user_id: req.body.user_id,
@@ -92,7 +93,7 @@ router.post('/', (req, res) => {
 
 // Update a comment
 
-router.put('/:id', (req, res) => {
+router.put('/:id', loggedIn, (req, res) => {
     Comment.update({
         content: req.body.content,
         flagged: req.body.flagged
@@ -117,7 +118,7 @@ router.put('/:id', (req, res) => {
 
 // Delete a comment
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', loggedIn, (req, res) => {
     Comment.destroy({
         where: {
             id: req.params.id
