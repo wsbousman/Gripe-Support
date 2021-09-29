@@ -16,7 +16,7 @@ const loginHandler = async (event) => {
         });
 
         if(response.ok){
-            document.location.replace('/success');
+            document.location.replace('/test/success');
         } else {
             if(response.statusText = 500) {
                 alert('Wrong user info');
