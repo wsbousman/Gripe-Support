@@ -1,11 +1,12 @@
 const { User, Category, Post, Comment, Hug } = require('../../models');
 const loggedIn = require('../../utils/loggedIn');
+const isAdmin = require('../../utils/isAdmin');
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 
 // Get all posts 
 
-router.get('/', (req, res) => {
+router.get('/' , (req, res) => {
     Post.findAll({
         attributes: [
             'id',
