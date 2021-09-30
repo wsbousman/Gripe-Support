@@ -2,30 +2,27 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, Category, Hug, User } = require('../models');
 
-router.get('/', (req,res) => {
-    Post.findAll({
-    attributes: [
-        'id',
-        'category_id',
-        [sequelize.literal('(SELECT COUNT(*) FROM post WHERE post.category_id = 1)'), 'support_posts'],
-        [sequelize.literal('(SELECT COUNT(*) FROM post)'), 'all_posts']   
-    ]
-    })
-    .then( dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('homepage', {
-            posts
-        });
-    })    
-    .catch( err => {
-        res.status(500).json(err);
+router.get('/', async (req, res) => {
+
+    const totalPosts = await Post.count();
+    console.log(totalPosts);
+    const encouragementPosts = await Post.count({
+        where: {
+            category_id: 1
+        }
     });
+    console.log(encouragementPosts);
+    const positivePercent = encouragementPosts/totalPosts*100;
+    console.log(positivePercent);
+
+    res.render('homepage', { totalPosts, encouragementPosts, positivePercent });
+    
 });
 
-router.get('/gripe', (req,res) => {
+router.get('/gripe', (req, res) => {
     Post.findAll({
-        where:{
-            category_id: 2 
+        where: {
+            category_id: 2
         },
         attributes: [
             'id',
@@ -34,31 +31,31 @@ router.get('/gripe', (req,res) => {
             'category_id',
             'created_at',
             [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE post.id = hug.post_id)'), 'hug_count']
-        ],      
+        ],
         include: {
-            model: Comment, 
-            attributes:['content'],
+            model: Comment,
+            attributes: ['content'],
             include: {
                 model: User,
                 attributes: ['username']
             }
         }
     })
-    .then( dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('gripes', {
-            posts
+        .then(dbPostData => {
+            const posts = dbPostData.map(post => post.get({ plain: true }));
+            res.render('gripes', {
+                posts
+            });
+        })
+        .catch(err => {
+            res.status(500).json(err);
         });
-    })
-    .catch( err => {
-        res.status(500).json(err);
-    });
 });
 
-router.get('/encouragement', (req,res) => {
+router.get('/encouragement', (req, res) => {
     Post.findAll({
-        where:{
-            category_id: 2 
+        where: {
+            category_id: 1
         },
         attributes: [
             'id',
@@ -67,37 +64,37 @@ router.get('/encouragement', (req,res) => {
             'category_id',
             'created_at',
             [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE post.id = hug.post_id)'), 'hug_count']
-        ],      
+        ],
         include: {
-            model: Comment, 
-            attributes:['content'],
+            model: Comment,
+            attributes: ['content'],
             include: {
                 model: User,
                 attributes: ['username']
             }
         }
     })
-    .then( dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('encouragements', {
-            posts
+        .then(dbPostData => {
+            const posts = dbPostData.map(post => post.get({ plain: true }));
+            res.render('encouragements', {
+                posts
+            });
+        })
+        .catch(err => {
+            res.status(500).json(err);
         });
-    })
-    .catch( err => {
-        res.status(500).json(err);
-    });
 });
 
-router.get('/login', (req,res) => {
-   if(req.session.loggedIn) {
-       res.redirect('/');
-       return;
-   }
-   res.render('login');
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('login');
 });
 
-router.get('/signup', (req,res) => {
-    if(req.session.loggedIn) {
+router.get('/signup', (req, res) => {
+    if (req.session.loggedIn) {
         res.redirect('/');
         return;
     }

@@ -1,7 +1,5 @@
 {
-
   "name": "Gripe-Support",
-
   "version": "1.0.0",
   "description": "An app to gripe and support",
   "main": "index.js",
@@ -23,6 +21,7 @@
   "homepage": "https://github.com/wsbousman/Group-2-Project#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "chart.js": "^3.5.1",
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
