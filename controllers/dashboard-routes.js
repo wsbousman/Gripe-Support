@@ -1,0 +1,67 @@
+const router = require('express').Router();
+const sequelize = require('../config/connection');
+const { User, Post, Hug } = require('../models');
+
+router.get('/', (req,res) => {
+    Post.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
+        attributes: [
+            'id',
+            'content',
+            'flagged',
+            'user_id',
+            'created_at'
+        ],
+        include: [
+            {
+            model: User,
+            attributes:['username']
+            }    
+        ]    
+    })
+    .then(dbPostData => {
+        const posts = dbPostData.map(post => post.get({ plain: true }));
+        res.render('dashboard', { posts, loggedIn: true });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+// router.get('/edit/:id', (req,res) => {
+//     Post.findOne({
+//         where: {
+//             id: req.params.id
+//         },
+//         attributes: [
+//             'id',
+//             'content',
+//             'flagged',
+//             'user_id',
+//             'created_at'
+//         ],
+//         include: [
+//             {
+//             model: User,
+//             attributes:['username']
+//             },
+//             {
+//             model: Hug,
+//             attributes:['id', 'user_id', 'post_id', 'created_at']
+//             }    
+//         ]    
+//     })
+//     .then(dbPostData => {
+//         const posts = dbPostData.map(post => post.get({ plain: true }));
+//         res.render('edit-post', { posts, loggedIn: true });
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+// });
+
+module.exports = router;

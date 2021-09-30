@@ -1,11 +1,14 @@
 {
+
   "name": "Gripe-Support",
+
   "version": "1.0.0",
   "description": "An app to gripe and support",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "seeds": "node seeds/index.js"
+    "seeds": "node seeds/index.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
