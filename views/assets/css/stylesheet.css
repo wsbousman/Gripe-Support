@@ -1,0 +1,29 @@
+#homepage {
+    background-color: #d8d0f6;
+}
+
+#purple {
+    background-color: #d8d0f6;
+}
+
+#log-in-btn {
+    background-color: #d8d0f6;
+}
+
+#postPage {
+    background-color: #f8f0b5;
+}
+
+.full-rotate {
+    margin: auto;
+    width: 80vw;
+    max-width: 40em;
+    transform: rotate(-3deg);
+}
+
+textarea {
+    width: 100%;
+    height: 10em;
+    max-height: 20em;
+    resize: none;
+}
