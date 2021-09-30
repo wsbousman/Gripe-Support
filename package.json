@@ -1,5 +1,7 @@
 {
-  "name": "group-2-project",
+
+  "name": "Gripe-Support",
+
   "version": "1.0.0",
   "description": "An app to gripe and support",
   "main": "index.js",
@@ -27,6 +29,7 @@
     "express-handlebars": "^5.3.4",
     "express-session": "^1.17.2",
     "mysql2": "^2.3.0",
+    "passport": "^0.5.0",
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
