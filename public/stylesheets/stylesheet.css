@@ -2,3 +2,8 @@
     display: flex;
     flex-wrap: nowrap;
 }
+
+.dashboard {
+    background-color: lightpink;
+};
+
