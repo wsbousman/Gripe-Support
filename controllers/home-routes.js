@@ -7,8 +7,8 @@ router.get('/', (req,res) => {
     attributes: [
         'id',
         'category_id',
-        [sequelize.literal('SELECT COUNT(*) FROM post WHERE post.category_id = 1)'), 'support_posts'],
-        [sequelize.literal('SELECT COUNT(*) FROM post)'), 'all_posts']   
+        [sequelize.literal('(SELECT COUNT(*) FROM post WHERE post.category_id = 1)'), 'support_posts'],
+        [sequelize.literal('(SELECT COUNT(*) FROM post)'), 'all_posts']   
     ]
     })
     .then( dbPostData => {
@@ -16,7 +16,10 @@ router.get('/', (req,res) => {
         res.render('homepage', {
             posts
         });
-    });    
+    })    
+    .catch( err => {
+        res.status(500).json(err);
+    });
 });
 
 router.get('/gripe', (req,res) => {
@@ -46,6 +49,9 @@ router.get('/gripe', (req,res) => {
         res.render('gripes', {
             posts
         });
+    })
+    .catch( err => {
+        res.status(500).json(err);
     });
 });
 
@@ -76,6 +82,9 @@ router.get('/encouragement', (req,res) => {
         res.render('encouragements', {
             posts
         });
+    })
+    .catch( err => {
+        res.status(500).json(err);
     });
 });
 
