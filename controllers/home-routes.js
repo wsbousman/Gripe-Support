@@ -43,7 +43,7 @@ router.get('/gripe', (req,res) => {
     })
     .then( dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('gripe', {
+        res.render('gripes', {
             posts
         });
     });
@@ -73,7 +73,7 @@ router.get('/encouragement', (req,res) => {
     })
     .then( dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('encouragement', {
+        res.render('encouragements', {
             posts
         });
     });
@@ -92,7 +92,7 @@ router.get('/signup', (req,res) => {
         res.redirect('/');
         return;
     }
-    res.render('signup');
+    res.render('sign-up');
 });
 
 module.exports = router;
