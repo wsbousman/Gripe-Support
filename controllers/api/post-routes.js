@@ -1,10 +1,12 @@
 const { User, Category, Post, Comment, Hug } = require('../../models');
+const loggedIn = require('../../utils/loggedIn');
+const isAdmin = require('../../utils/isAdmin');
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 
 // Get all posts 
 
-router.get('/', (req, res) => {
+router.get('/' , (req, res) => {
     Post.findAll({
         attributes: [
             'id',
@@ -90,7 +92,7 @@ router.get('/:id', (req, res) => {
 
 // Create a post 
 
-router.post('/', (req, res) => {
+router.post('/', loggedIn, (req, res) => {
     Post.create({
         content: req.body.content,
         user_id: req.body.user_id,
@@ -105,7 +107,7 @@ router.post('/', (req, res) => {
 
 // Add a hug to a post - must come before the /:id put request
 
-router.put('/giveHug', (req, res) => {
+router.put('/giveHug', loggedIn, (req, res) => {
     // First, create a new Hug in the hug model, then find the post that was given the hug, and return it with the new hug count. 
     Hug.create({
         user_id: req.body.user_id,
@@ -135,7 +137,7 @@ router.put('/giveHug', (req, res) => {
 
 // Edit a post
 
-router.put('/:id', (req, res) => {
+router.put('/:id', loggedIn, (req, res) => {
     Post.update(
         {
             content: req.body.content,
@@ -161,7 +163,7 @@ router.put('/:id', (req, res) => {
 
 // Delete a post
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', loggedIn, (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id

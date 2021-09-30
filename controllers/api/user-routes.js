@@ -10,8 +10,6 @@ router.get('/', (req, res) => {
             'id',
             'username',
             'admin',
-            // Using raw MySQL syntax, we are grabbing the number of rows in the hug model where the user_id column value in the hug table is equal to the current user_id
-            [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE user.id = hug.user_id)'), 'hug_count']
         ]
     })
         .then(dbUserData => res.json(dbUserData))
@@ -23,11 +21,15 @@ router.get('/', (req, res) => {
 // Get one user
 
 router.get('/:id', (req, res) => {
+    
+    Post.sum('hug_count', {where: {'user_id': req.params.id}}).then(sum => console.log(sum));
+
     User.findOne({
         attributes: [
             'id',
             'username',
             'admin',
+            // Using raw MySQL syntax, we are grabbing the number of rows in the hug model where the user_id column value in the hug table is equal to the current user_id
             [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE user.id = hug.user_id)'), 'hug_count']
         ],
         where: {
@@ -42,20 +44,20 @@ router.get('/:id', (req, res) => {
                     attributes: ['id', 'name']
                 }
             },
-            {
-                model: Comment,
-                attributes: ['id', 'content', 'created_at'],
-                include: {
-                    model: Post,
-                    attributes: ['id', 'content']
-                }
-            },
-            {
-                model: Post,
-                attributes: ['id', 'content'],
-                through: Hug,
-                as: 'hugged_posts'
-            }
+            // {
+            //     model: Comment,
+            //     attributes: ['id', 'content', 'created_at'],
+            //     include: {
+            //         model: Post,
+            //         attributes: ['id', 'content']
+            //     }
+            // },
+            // {
+            //     model: Post,
+            //     attributes: ['id', 'content'],
+            //     through: Hug,
+            //     as: 'hugged_posts'
+            // }
         ]
     })
         .then(dbUserData => {
@@ -135,6 +137,49 @@ router.delete('/:id', (req, res) => {
             console.log(err);
             res.status(500).json(err); 
         });
+});
+
+// Route to log in user
+
+router.post('/login', (req, res) => {
+    User.findOne({
+        where: {
+            username: req.body.username
+        }
+    })
+        .then(dbUserData => {
+            if(!dbUserData) {
+                res.status(400).json({message: 'No user exists with that username!'});
+                return;
+            }
+
+            const validPassword = dbUserData.checkPassword(req.body.password); 
+
+            if(!validPassword) {
+                res.status(400).json({ message: 'Incorrect username or password' });
+                return; 
+            }
+
+            req.session.save(() => {
+                req.session.user_id = dbUserData.id,
+                req.session.admin = dbUserData.admin,
+                req.session.loggedIn = true
+
+                res.status(200).json({user: dbUserData, message: 'You are now logged in!' });
+            });
+        });
+});
+
+// Route to logout user
+
+router.post('/logout', (req, res) => {
+    if(req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
 });
 
 module.exports = router; 

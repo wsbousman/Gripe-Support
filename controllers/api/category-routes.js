@@ -1,4 +1,5 @@
 const { User, Category, Post, Comment, Hug } = require('../../models');
+const loggedIn = require('../../utils/loggedIn');
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 
@@ -23,6 +24,7 @@ router.get('/', (req, res) => {
 // Get one category 
 
 router.get('/:id', (req, res) => {
+
     Category.findOne({
         where: {
             id: req.params.id
@@ -56,7 +58,7 @@ router.get('/:id', (req, res) => {
 
 // Create a category
 
-router.post('/', (req, res) => {
+router.post('/', loggedIn, (req, res) => {
     Category.create({
         name: req.body.name
     })
@@ -71,7 +73,7 @@ router.post('/', (req, res) => {
 
 // Update a category
 
-router.put('/:id', (req, res) => {
+router.put('/:id', loggedIn, (req, res) => {
     Category.update(
         {
             name: req.body.name
@@ -96,7 +98,7 @@ router.put('/:id', (req, res) => {
 
 // Delete a category
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', loggedIn, (req, res) => {
     Category.destroy({
         where: {
             id: req.params.id
