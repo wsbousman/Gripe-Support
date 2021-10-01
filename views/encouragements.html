@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css">
+    <link rel="stylesheet" href="./assets/css/stylesheet.css">
+    <title>gripe//support-view-my-post</title>
+
+</head>
+
+<body class="dashboard">
+    <!-- navigation bar -->
+    <section class="header margin-bottom-large">
+        <nav class="border fixed split-nav">
+            <div class="nav-brand padding-bottom">
+
+                <!-- log-out sitch -->
+                <label class="paper-btn btn-small logout-btn" for="modal-1">
+                    <h4>
+                        <a>log out</a>
+                    </h4>
+                </label>
+            </div>
+
+            <!-- collapsible menu with links to other pages -->
+            <div class="collapsible">
+                <input id="collapsible1" type="checkbox" name="collapsible1">
+                <label class="paper-btn" id="menuButton" for="collapsible1">
+                    <h5 class="padding-none margin-small flex-edges">menu</h5>
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                    <div class="bar4"></div>
+                </label>
+                <div class="collapsible-body">
+                    <ul class="inline">
+                        <li><a class="navLink" href="./dashboard.html">my dashboard</a></li>
+                        <li><a class="navLink" href="./gripes.html">gripes</a></li>
+                        <li><a class="navLink" href="./encouragements.html">encouragements</a></li>
+                        <li><a href="./index.html">
+                                <img src="./assets/images/hearts/little-pink.png"
+                                    class="aligned-middle paper-btn btn-small no-border">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <section>
+        <div class="col padding-small flex-center" id="postPage">
+            <div class="aligned-middle margin-top-large">
+                <div class="margin-top-large padding-top-large">
+                    <div id="logo and posts">
+                        <img class="row aligned-middle no-border" src="assets/images/logo/gripe support title@1x.png">
+                    </div>
+                </div>
+            </div>
+            <div class="flex-center">
+                <div class="padding-small no-border">
+                    <div class="margin-small" id="heart and title">
+                        <img class="row aligned-middle no-border" src=" assets/images/hearts/edit-posts-heart.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- textarea -->
+    <section class="row" id="postContainer">
+        <div class="col full-rotate flex-center">
+            <div class="paper border-2 padding-large">
+                <div class="">
+                    <div class="text-box">
+                        <label for="postNumber">encouragement</label>
+                        <div>
+                            <container class="myPost card paper border">
+                                <div class="card-text">You never know what little act of kindness can change someone's entire world.</div>
+                            </container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- hug counter -->
+            <div class="row flex-right marg">
+                <div class="col flex">
+                    <div class="margin-none" id="commentBox">
+                        <p class="card-title paper border-6 margin-none padding" id="commentHeader">comments:</p>
+                        <div class="container paper border-6 padding">It's true! I don't know how many times my school ID fell out of my pocket, or my bag, or my wallet, and someone always ran after me to give it to me.</div>
+                        <div class="container paper border-6 padding">I was having a really bad day and this girl on the bus offered me a fresh cookie she'd just bought from the bakery out the window. Best cookie I've ever had.</div>
+                        <div class="container paper border-6 padding">There was a woman in front of me in line at Tesco's who couldn't come up with like the ten quid she needed to buy a few things, baby formula, an aubergine, tinned veg, detergent, and some digestives. She was young and had her babe in the pram, looking absolutely mortified, so I just handed the tiller a tenner. I was happy to do it, especially since she looked so relieved as she thanked me and bagged her things. Then this older woman behind me leaned over and said, "You realize you've just been had," all smug. Like??? So what?? Even if it'd been a ploy or an act to get someone to pay for her things, she obviously wouldn't have had to do that if she were able to pay for it herself. To me, it was only ten quid, but to her, it could have been the exact thing she needed in a desperate moment. I'd honestly rather live in a world where we took care of each other instead of assuming the worst.</div>
+                        <div class="container paper border-6 padding">The lady working the donut counter handed me a free donut because I hesitated over spending the 99 cents it'd cost. I hadn't eaten anything all day, I'd been working my own retail job for minimum wage, and I don't know if she could see the run-down, broke-college-student on me, but she really helped me out. I never saw her again, but I'll always remember that free donut. Didn't feel like charity--it felt like being cared for.</div>
+                        <div class="container paper border-6 padding">a lotta these comments are about food. almost like there's a wealth disparity and food desert crisis going on or something. Seriously, though, I know what it's like not to have food for days, and it just breaks you, so if I'm ever in the position to help somebody out like that, I try to do what I can.</div>
+                    </div>
+                </div>
+                <div class="flex-spaces paper-btn border-4 padding-small margin-top-none" id="hug-counter">
+                    <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png" alt="hug-icon">
+                    <!-- number of hugs -->
+                    <p class="flex-center padding-right-small">29</p>
+                </div>
+            </div>
+
+
+            <div class="col full-rotate flex-center">
+                <div class="paper border-3 padding-large margin-top-small">
+                    <div class="margin-small">
+                        <label for="postNumber">Post no. 2</label>
+                        <div>
+                            <container class="myPost card paper border">
+                                <div class="card-text">
+                                    okay, yeah, maybe your idea isn't original--maybe someone's already written a saga about a group of fantasy creatures going on an epic journey to save the world--and yes, someone's already adapted that shakespearean play into modern times--and yes, someone's already painted every flower ever, probably--and someone's definitely written a song with the same chord progressions and harmonies as yours--but. None of those people are you, and that's what will make the Thing you're making, creating, crafting--your perspective, your voice, your human need to express yourself--that's what makes it original. So please don't give up on the Thing bc you think it's already been done; it hasn't been done the way you'd do it, and that's worth sharing.
+                                </div>
+                            </container>
+                        </div>
+                    </div>
+                    <p></p>
+                    <label type="submit" class="paper-btn btn-small right" id="deletePostBtn">delete</label>
+                </div>
+                <!-- comments -->
+                <div class="row flex-right marg">
+                    <div class="col flex-spaces">
+                        <div class="margin-none" id="commentBox">
+                            <p class="card-title paper border-6 margin-none padding" id="commentHeader">comments:</p>
+                            <div class="container paper border-6 padding">wow i was literally just thinking about how my short story felt a lot like this episode of black mirror meets jane austen and how regency dystopias have already been done (pride and prejudice and zombies, android karenina [although that's a bit later in epoch]) and what would make mine special? i like writing it. i like sharing it with my friends at school. they seem to like it, too. i just haven't written in months, but now i feel like writing the next chapter!</div>
+                            <div class="container paper border-6 padding">i also feel this way about writing comments. like is there anything i can say that hasn't already been said?</div>
+                        </div>
+                    </div>
+                    <div class="flex-spaces paper-btn border-4 padding-small margin-top-none" id="hug-counter">
+                        <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png" alt="hug-icon">
+                        <!-- number of hugs -->
+                        <p class="flex-center padding-right-small">11</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>

@@ -35,7 +35,7 @@
 
 #pink {
     background-color: #f6d0d8;
-};
+}
 
 .navLinkPurple:hover {
     color: #d8d0f6;
@@ -50,7 +50,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 12.5%;
+    margin-top: 11.5%;
 }
 
 #myPostHistoryPostLabels:hover {
@@ -114,4 +114,41 @@ textarea {
 .logout-btn:hover {
     color:black;
     background-color: #f6d0d8;
+}
+
+#postContainer{
+    max-width: 1767;
+    height: auto;
+}
+
+.myPost {
+    background-color: white;
+    color: black;
+}
+
+#commentHeader{
+    color: #f6d0d8;
+}
+
+#commentBox {
+    min-width: 40vw;
+}
+
+#hug-counter {
+    display: inline-flex;
+    margin: none;
+    justify-self: right;
+    align-content: center;
+
+}
+
+#hug-counter:hover {
+    box-shadow: #f6d0d8 15px 28px 25px -18px;
+    background-color: #f6d0d8;
+}
+
+#hugIcon {
+    height: 3em;
+    width: 3em;
+    align-self: center;
 }
