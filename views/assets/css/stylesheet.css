@@ -1,17 +1,60 @@
-#homepage {
+.logInBtn:hover {
+    color: white;
     background-color: #d8d0f6;
+}
+
+.navLinkPurple:hover {
+    color: #d8d0f6;
+}
+
+#little-purple:hover {
+    border-color: #d8d0f6;
+    border-radius: 29px;
+} 
+
+#hpLogo {
+    margin-top: 10%;
+}
+
+.homepageCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#aboutCard {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
 
 #purple {
     background-color: #d8d0f6;
 }
 
-#log-in-btn {
-    background-color: #d8d0f6;
+#pink {
+    background-color: #f6d0d8;
+};
+
+.navLinkPurple:hover {
+    color: #d8d0f6;
+}
+
+#little-purple:hover {
+    border-color: #d8d0f6;
+    border-radius: 29px;
 }
 
 #postPage {
-    background-color: #f8f0b5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 12.5%;
+}
+
+#myPostHistoryPostLabels:hover {
+    color: #f6d0d8;
 }
 
 .full-rotate {
@@ -26,4 +69,49 @@ textarea {
     height: 10em;
     max-height: 20em;
     resize: none;
+}
+
+#submitPostBtn {
+    display: flex;
+    justify-content: center;
+    color: black;
+    background-color:#f8f0b5;
+    border-color: #f8f0b5;
+    box-shadow: lightgray 15px 28px 25px -18px;
+}
+
+#deletePostBtn {
+    display: flex;
+    justify-content: center;
+    background-color: #f6d0d8;
+    color: black;
+    box-shadow: pink 15px 28px 25px -18px;
+}
+
+#signUpCard {
+    display: inline-block;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+#logoSignUp {
+    border-color: #d8d0f6;
+    box-shadow: #d8d0f5 15px 28px 25px -18px;
+}
+
+#logoSignUp:hover {
+    background-color: #d8d0f6;
+}
+
+.navLink:hover {
+    color: #f6d0d8;
+}
+
+.post-btn:hover {
+    color:#f6d0d8;
+}
+
+.logout-btn:hover {
+    color:black;
+    background-color: #f6d0d8;
 }
