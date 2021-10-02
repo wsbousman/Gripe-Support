@@ -166,7 +166,11 @@ textarea {
     background-color: transparent;
 }
 
-.logoEnc {
+#little-blue {
+    background-color: transparent;
+}
+
+.logo {
     display: inline-flex;
     align-self: center;
 }
@@ -175,7 +179,7 @@ textarea {
     word-break: break-word;
 }
 
-#postContainer{
+#postContainer {
     max-width: 1767;
     height: auto;
 }
@@ -202,7 +206,7 @@ textarea {
 
 }
 
-#hug-counter:hover {
+#hug-counterMine:hover {
     box-shadow: #f6d0d1 15px 28px 25px -18px;
     background-color: #f6d0d8;
 }
@@ -236,7 +240,7 @@ textarea {
     background-color:#d0f6e8;
 }
 
-#hug-counterEnc {
+#hug-counter {
     display: inline-flex;
     margin: none;
     justify-self: right;
@@ -249,4 +253,57 @@ textarea {
     box-shadow: #d0f6e8 15px 28px 25px -18px;
     background-color:#d0f6e8;
 }
+
+#commentGripeHeader {
+    color: #cbdcf4;
+}
+
+#hug-counterGripe:hover {
+    background-color: #cbdcf4;
+    box-shadow: 15px 28px 25px -18px #cbdcf4;
+}
+
+#commentGripeHeader {
+    color:#cbdcf4
+}
+
+#commentGripeBtn {
+    background-color: #cbdcf4;
+}
+
+#nextGripeBtn:hover {
+    background-color: #cbdcf4;
+}
+
+#gripeTitle {
+    background-color: #cbdcf4;
+    color: #474644;
+}
+
+#gripeTitleBanner {
+    word-break: break-word;
+}
+
+.gripe-logout-button:hover {
+    background-color: #cbdcf4;
+}
+
+#menuGripeButton:hover {
+    color:#cbdcf4;
+}
+
+.navLinkGripe:hover {
+    color:#cbdcf4;
+}
+
+#gripeHeading {
+    margin-top: 11.5%;
+}
+
+.gripes-title {
+    background-color: #cbdcf4;
+    color: #474644;
+    border-color: #474644;
+}
+
 
