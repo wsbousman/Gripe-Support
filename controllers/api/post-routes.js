@@ -43,6 +43,24 @@ router.get('/' , (req, res) => {
         });
 });
 
+// Get Encouragement Posts + Total Posts 
+router.get('/count', async (req, res) => {
+
+    const totalPosts = await Post.count();
+    console.log(totalPosts);
+    const encouragementPosts = await Post.count({
+        where: {
+            category_id: 1
+        }
+    });
+    console.log(encouragementPosts);
+    const positivePercent = encouragementPosts/totalPosts*100;
+    console.log(positivePercent);
+
+    res.status(200).json({encouragementPosts, totalPosts});
+    
+});
+
 // Grab one post
 
 router.get('/:id', (req, res) => {

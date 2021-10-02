@@ -2,24 +2,8 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, Category, Hug, User } = require('../models');
 
-router.get('/', (req,res) => {
-    Post.findAll({
-    attributes: [
-        'id',
-        'category_id',
-        [sequelize.literal('(SELECT COUNT(*) FROM post WHERE post.category_id = 1)'), 'support_posts'],
-        [sequelize.literal('(SELECT COUNT(*) FROM post)'), 'all_posts']   
-    ]
-    })
-    .then( dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('homepage', {
-            posts
-        });
-    })    
-    .catch( err => {
-        res.status(500).json(err);
-    });
+router.get('/', async (req, res) => {
+    res.render('homepage');
 });
 
 router.get('/gripe', (req,res) => {
