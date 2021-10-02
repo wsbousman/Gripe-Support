@@ -230,6 +230,15 @@ textarea {
     color:#d0f6e8;
 }
 
+#hug-counterEnc {
+    display: inline-flex;
+    margin: none;
+    justify-self: right;
+    align-content: center;
+    break-inside: avoid;
+}
+
+
 #nextPreviousBtns {
     position: fixed;
     bottom: 0px;
@@ -240,13 +249,12 @@ textarea {
     background-color:#d0f6e8;
 }
 
-#hug-counter {
+#hug-counterGripe {
     display: inline-flex;
     margin: none;
     justify-self: right;
     align-content: center;
     break-inside: avoid;
-
 }
 
 #hug-counterEnc:hover {
