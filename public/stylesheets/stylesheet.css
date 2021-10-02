@@ -1,9 +1,317 @@
-.homepage {
-    display: flex;
-    flex-wrap: nowrap;
+.logInBtn:hover {
+    color: white;
+    background-color: #d8d0f6;
 }
 
-.dashboard {
-    background-color: lightpink;
-};
+.navLinkPurple:hover {
+    color: #d8d0f6;
+}
+
+#little-purple:hover {
+    border-color: #d8d0f6;
+    border-radius: 29px;
+} 
+
+#hpLogo {
+    margin-top: 10%;
+}
+
+.homepageCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#aboutCard {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+#purple {
+    background-color: #d8d0f6;
+}
+
+#pink {
+    background-color: #f6d0d8;
+}
+
+.navLinkPurple:hover {
+    color: #d8d0f6;
+}
+
+#little-purple:hover {
+    border-color: #d8d0f6;
+    border-radius: 29px;
+    background-color: transparent;
+}
+
+.enc-title {
+    background-color: #d0f6e8;
+    color: #474644;
+    border-color: #474644;
+    display: flex;
+    break-inside: auto;
+}
+
+#menuDash:hover {
+    color: #f6d0d8;
+}
+
+#encHeading {
+    margin-top: 11.5%;
+}
+
+#postPage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-self: center;
+}
+
+#myPostHistoryPostLabels:hover {
+    color: white;
+    background-color: #f6d0d8;
+}
+
+.full-rotate {
+    margin: auto;
+    width: 80vw;
+    max-width: 40em;
+    transform: rotate(-3deg);
+}
+
+textarea {
+    width: 100%;
+    height: 10em;
+    max-height: 20em;
+    resize: none;
+}
+
+#submitPostBtn {
+    display: flex;
+    justify-content: center;
+    color: black;
+    background-color:#f8f0b5;
+    border-color: #f8f0b5;
+    box-shadow: lightgray 15px 28px 25px -18px;
+}
+
+#deletePostBtn {
+    display: flex;
+    justify-content: center;
+    background-color: #f6d0d8;
+    color: black;
+    box-shadow: pink 15px 28px 25px -18px;
+}
+
+#signUpCard {
+    display: inline-block;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+#logoSignUp {
+    border-color: #d8d0f6;
+    box-shadow: #d8d0f5 15px 28px 25px -18px;
+}
+
+#logoSignUp:hover {
+    background-color: #d8d0f6;
+}
+
+.navLink:hover {
+    color: #f6d0d8;
+}
+
+.post-btn:hover {
+    color:#f6d0d8;
+}
+
+.modal-body {
+    width: 90%;
+}
+
+.logout-btn:hover {
+    color:black;
+    background-color: #f6d0d8;
+}
+
+#dashModalPostBtn {
+    background-color: #f6d0d8;
+    display: inline-flex;
+    justify-self: right;
+}
+
+.modalPostTextArea {
+    color: black;
+    background-color: white;
+    padding: 10px;
+}
+
+.enc-logout-btn:hover {
+    background-color: #d0f6e8;
+}
+
+#menuEncButton:hover {
+    background-color: #d0f6e8;
+}
+
+.navLinkEnc:hover {
+    background-color: #d0f6e8;
+}
+
+#little-green {
+    background-color: transparent;
+}
+
+#little-blue {
+    background-color: transparent;
+}
+
+.logo {
+    display: inline-flex;
+    align-self: center;
+}
+
+#encTitleBanner {
+    word-break: break-word;
+}
+
+#postContainer {
+    max-width: 1767;
+    height: auto;
+}
+
+.myPost {
+    background-color: white;
+    color: black;
+}
+
+#commentHeader{
+    color: #f6d0d8;
+}
+
+#commentBox {
+    min-width: 40vw;
+}
+
+#hug-counter {
+    display: inline-flex;
+    margin: none;
+    justify-self: right;
+    align-content: center;
+    break-inside: avoid;
+
+}
+
+#hug-counterMine:hover {
+    box-shadow: #f6d0d1 15px 28px 25px -18px;
+    background-color: #f6d0d8;
+}
+
+#hugIcon {
+    height: 3.5em;
+    width: 3.5em;
+    align-self: center;
+    display: flex;
+}
+
+#commentEncBtn {
+    background-color:#d0f6e8;
+    display: flex;
+    justify-content: center;
+    color: #474644;
+    box-shadow: #f6d0d1 15px 28px 25px -18px;
+}
+
+#commentEncHeader {
+    color:#d0f6e8;
+}
+
+#hug-counterEnc {
+    display: inline-flex;
+    margin: none;
+    justify-self: right;
+    align-content: center;
+    break-inside: avoid;
+}
+
+
+#nextPreviousBtns {
+    position: fixed;
+    bottom: 0px;
+    right:0px;
+}
+
+#nextEncBtn:hover {
+    background-color:#d0f6e8;
+}
+
+#hug-counterGripe {
+    display: inline-flex;
+    margin: none;
+    justify-self: right;
+    align-content: center;
+    break-inside: avoid;
+}
+
+#hug-counterEnc:hover {
+    box-shadow: #d0f6e8 15px 28px 25px -18px;
+    background-color:#d0f6e8;
+}
+
+#commentGripeHeader {
+    color: #cbdcf4;
+}
+
+#hug-counterGripe:hover {
+    background-color: #cbdcf4;
+    box-shadow: 15px 28px 25px -18px #cbdcf4;
+}
+
+#commentGripeHeader {
+    color:#cbdcf4
+}
+
+#commentGripeBtn {
+    background-color: #cbdcf4;
+}
+
+#nextGripeBtn:hover {
+    background-color: #cbdcf4;
+}
+
+#gripeTitle {
+    background-color: #cbdcf4;
+    color: #474644;
+}
+
+#gripeTitleBanner {
+    word-break: break-word;
+}
+
+.gripe-logout-button:hover {
+    background-color: #cbdcf4;
+}
+
+#menuGripeButton:hover {
+    color:#cbdcf4;
+}
+
+.navLinkGripe:hover {
+    color:#cbdcf4;
+}
+
+#gripeHeading {
+    margin-top: 11.5%;
+}
+
+.gripes-title {
+    background-color: #cbdcf4;
+    color: #474644;
+    border-color: #474644;
+}
+
 
