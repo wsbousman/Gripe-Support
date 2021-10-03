@@ -42,7 +42,8 @@ async function hugHandler(event) {
     const response = await fetch('/api/posts/giveHug', {
         method: 'PUT',
         body: JSON.stringify({
-            post_id
+            post_id,
+            category_id: 1
         }),
         headers: {
             'Content-Type': 'application/json'
