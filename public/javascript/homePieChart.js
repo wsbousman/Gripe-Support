@@ -19,7 +19,7 @@ const getPostCount = async function () {
             data: {
                 datasets: [{
                     data: [encouragementPosts, gripePosts],
-                    backgroundColor: ['#00FF00', '#000000']
+                    backgroundColor: ['#d0f6e8', '#cbdcf4']
                 }],
                 labels: ['Encouragements', 'Gripes']
             }
