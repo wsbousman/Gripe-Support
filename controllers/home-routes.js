@@ -33,8 +33,10 @@ router.get('/gripes', (req,res) => {
     })
     .then( dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
+        const random = Math.floor(Math.random() * (posts.length))
+        const post = posts[random];
         res.render('gripes', {
-            posts,
+            post,
             loggedIn: req.session.loggedIn
         });
     })
@@ -58,17 +60,15 @@ router.get('/encouragements', (req,res) => {
         ],      
         include: {
             model: Comment, 
-            attributes:['content'],
-            include: {
-                model: User,
-                attributes: ['username']
-            }
+            attributes:['content']
         }
     })
     .then( dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
+        const random = Math.floor(Math.random() * (posts.length))
+        const post = posts[random];
         res.render('encouragements', {
-            posts,
+            post,
             loggedIn: req.session.loggedIn
         });
     })

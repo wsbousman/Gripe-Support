@@ -1,4 +1,7 @@
 // This gets linked on encouragements.handlebars
+let post_id = document.querySelector('label [for="postNumber"]').id();
+console.log('post_id: ',post_id);
+
 // Button logic for commenting
 async function commentFormHandler(event){
     event.preventDefault();
@@ -35,18 +38,11 @@ async function commentFormHandler(event){
 async function encouragementHandler(event){
     event.preventDefault();
 
-    const comment_text = document.querySelector('textarea[name="comment-body"]').value.trim();
-
-    const post_id = window.location.toString().split('/')[
-        window.location.toString().split('/').length -1
-    ];
-
     if(comment_text) {
-        const response = await fetch('/api/comments', {
-            method: 'POST',
+        const response = await fetch('/', {
+            method: 'GET',
             body: JSON.stringify({
-                post_id,
-                comment_text
+                content
             }),
             headers: {
                 'Content-type': 'application/json'
@@ -70,7 +66,7 @@ async function hugHandler(event) {
         window.location.toString().split('/').length - 1
     ];
 
-    const response = await fetch('/api/posts/upvote', {
+    const response = await fetch('/api/posts/hug', {
         method: 'PUT',
         body: JSON.stringify({
             post_id: id
@@ -88,5 +84,5 @@ async function hugHandler(event) {
 }
 
 document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
-document.querySelector('.encouragement-btn').addEventListener('click', encouragementHandler);
-document.querySelector('.hug-btn').addEventListener('click', hugHandler);
+document.querySelector('#nextEncBtn').addEventListener('click', encouragementHandler);
+document.querySelector('#hug-btn').addEventListener('click', hugHandler);

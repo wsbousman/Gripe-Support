@@ -92,19 +92,22 @@
             <div class="col full-rotate flex-center">
                 <div class="paper border-3 padding-large margin-top-small">
                     <div class="margin-small">
+        
+                        <label for="postNumber" id="{{post.id}}">{{post.content}}</label>
                         {{#each posts as |post|}}
-                        <label for="postNumber">{{post.content}} </label>
+                        {{post.id}}
                         {{/each}}
-                    <form id="comment-form">
+                    <form class="comment-form">
                         <div>
                             <container class="myPost card paper border">
                                 <textarea class="card-text" name="comment-body" placeholder="Say something encouraging">
+                                    
                                 </textarea>
                             </container>
                         </div>
                         </div>
                         <p></p>
-                        <label type="submit" class="paper-btn btn-small right" id="commentEncBtn">comment</label>
+                        <button type="submit" class="paper-btn btn-small right" id="commentEncBtn">comment</button>
                     </form>    
                     
                 </div>
@@ -125,7 +128,9 @@
                         id="hug-counterEnc">
                         <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png" alt="hug-icon">
                         <!-- number of hugs -->
-                        <p class="flex-center padding-right-small">11</p>
+                        <button id="hug-btn">
+                            <p class="flex-center padding-right-small">11</p>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -134,10 +139,10 @@
 
         <section id="nextPreviousBtns">
             <div class="margin-bottom-large">
-                <a id="nextEncBtn" class="next paper-btn btn-large">></a>
+                <btn id="nextEncBtn" class="next paper-btn btn-large">></btn>
             </div>
         </section>
 
     </section>
-<script src="/javascript/viewEncouragements.js"></script>
+<script src="/javascript/viewEncouragement.js"></script>
 </body>
