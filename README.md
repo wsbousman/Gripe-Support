@@ -10,7 +10,7 @@ allow users to sign up, post their gripes, and give and receive support to achie
 media has been unable to: understanding, encouragement, and inspiration.
 ***
 # Instructions
-Gripe Support is hosted on Heroku, so like many web applications, it requires only a valid email and 
+Gripe Support is hosted on Heroku, so like many web applications, it requires only a valid username and 
 username to sign up and start posting gripes and comments. Support has never been so accessible! 
 ![screenshot](https://i.imgur.com/EpcziSb.png)
 ***

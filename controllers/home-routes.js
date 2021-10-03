@@ -1,12 +1,15 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, Category, Hug, User } = require('../models');
+const { Post, Category, Hug, User, Comment } = require('../models');
+const loggedIn = require('../utils/loggedIn');
 
 router.get('/', async (req, res) => {
-    res.render('homepage');
+    res.render('homepage', {
+    loggedIn: req.session.loggedIn
+    });
 });
 
-router.get('/gripe', (req,res) => {
+router.get('/gripes', (req,res) => {
     Post.findAll({
         where:{
             category_id: 2 
@@ -30,8 +33,11 @@ router.get('/gripe', (req,res) => {
     })
     .then( dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
+        const random = Math.floor(Math.random() * (posts.length))
+        const post = posts[random];
         res.render('gripes', {
-            posts
+            post,
+            loggedIn: req.session.loggedIn
         });
     })
     .catch( err => {
@@ -39,7 +45,7 @@ router.get('/gripe', (req,res) => {
     });
 });
 
-router.get('/encouragement', (req,res) => {
+router.get('/encouragements', (req,res) => {
     Post.findAll({
         where:{
             category_id: 1 
@@ -54,30 +60,22 @@ router.get('/encouragement', (req,res) => {
         ],      
         include: {
             model: Comment, 
-            attributes:['content'],
-            include: {
-                model: User,
-                attributes: ['username']
-            }
+            attributes:['content']
         }
     })
     .then( dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
+        const random = Math.floor(Math.random() * (posts.length))
+        const post = posts[random];
+        console.log(post);
         res.render('encouragements', {
-            posts
+            post,
+            loggedIn: req.session.loggedIn
         });
     })
     .catch( err => {
         res.status(500).json(err);
     });
-});
-
-router.get('/login', (req,res) => {
-   if(req.session.loggedIn) {
-       res.redirect('/');
-       return;
-   }
-   res.render('login');
 });
 
 router.get('/signup', (req,res) => {

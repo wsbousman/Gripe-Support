@@ -6,77 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css">
-    <title>gripe//support-homepage</title>
-    <link rel="./assets/css/stylesheet.css">
+    <title>gripe//support-sign-up</title>
+    <link rel="stylesheet" href="./assets/css/stylesheet.css">
 </head>
 
-<body>
-    <section class="header">
-        <nav class="border fixed split-nav">
-            <div class="nav-brand">
-
-                <!-- log-in and sign-up modal -->
-                <div class="log-in-modal" id="logIn">
-                    <label class="paper-btn btn-small" for="modal-1">
-                        <h4>
-                            <a>log in</a>
-                        </h4>
-                    </label>
-                </div>
-                <input class="modal-state" id="modal-1" type="checkbox">
-                <div class="modal" id="openModal">
-                    <label class="modal-bg" for="modal-1"></label>
-                    <div class="modal-body">
-                        <label class="btn-close" for="modal-1">X</label>
-                        <h4 class="modal-title">gripe//support</h4>
-                        <h5 class="modal-subtitle">you need an account to make posts</h5>
-                        <p class="modal-text">
-                        <div class="form-group">
-                            <label for="paperInputs1">Email</label>
-                            <input class="input-block" type="text" placeholder="xxxxxxx@xxx.com" id="paperInputs1">
-                        </div>
-                        <div class="form-group">
-                            <label for="paperInputs1">Password</label>
-                            <input class="input-block" type="text" placeholder="we hope you're using a password manager"
-                                id="paperInputs1">
-                            <p></p>
-                            <label class="aligned-right paper-btn " for="submit-log-in">Log In</label>
-                        </div>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- collapsible menu with links to other pages -->
-            <div class="collapsible">
-                <input id="collapsible1" type="checkbox" name="collapsible1">
-                <label class="paper-btn" for="collapsible1">
-                    <h5 class="padding-none margin-small flex-edges">menu</h5>
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                </label>
-                <div class="collapsible-body">
-                    <ul class="inline">
-                        <li><a href="./gripes.html">gripes</a></li>
-                        <li><a href="./encouragements.html">encouragements</a></li>
-                        <li>
-                            <img class="aligned-middle" src="./assets/images/hearts/little-purple.png"
-                                class="no-border">
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </section>
-
-    <section class="row aligned-middle padding-top-large margin-large">
-        <div>
-            <div class="card-body paper border">
+<body id="purple">
+   
+    <section class="row aligned-middle padding-top-large margin-large full-rotate">
+        <div class="padding-top-large margin-large">
+            <div class="card-body paper border" id="signUpCard">
                 <div class="card-title">
                     <div>
-                        <img class="row aligned-middle col" src="./assets/images/logo/gripe support title@1x.png"
+                        <img class="row aligned-middle col" id="logoSignUp" src="./assets/images/logo/gripe support title@1x.png"
                             alt="title logo">
                     </div>
                     <h3>Sign Up!</h3>
@@ -84,21 +25,24 @@
                 <div class="card-subtitle">
                     <p>Your posts will remain anonymous while accessible to you.</p>
                 </div>
-                <div class="form-group">
-                    <label for="paperInputs1">Email:</label>
-                    <input class="input-block" type="text" placeholder="email address" id="paperInputs1">
-                </div>
-                <div class="form-group">
-                    <label for="paperInputs1">Password:</label>
-                    <input class="input-block" type="text" placeholder="password" id="paperInputs1">
-                </div>
-                <div class="form-group">
-                    <label for="paperInputs1">Confirm Password:</label>
-                    <input class="input-block" type="text" placeholder="confirm password" id="paperInputs1">
-                </div>
-                <div class="form-group">
-                    <input class="create-account paper-btn" type="submit">
-                </div>
+                <form class="signup-form">
+                    <div class="form-group">
+                        <label for="paperInputs1">Username:</label>
+                        <input id="username-signup" class="input-block" type="text" placeholder="username" id="paperInputs1">
+                    </div>
+                    <div class="form-group">
+                        <label for="paperInputs1">Password:</label>
+                        <input id="password-signup1" class="input-block" type="password" placeholder="password" id="paperInputs1">
+                    </div>
+                    <div class="form-group">
+                        <label for="paperInputs1">Confirm Password:</label>
+                        <input id="password-signup2" class="input-block" type="password" placeholder="confirm password" id="paperInputs1">
+                    </div>
+                    <div class="form-group">
+                        <button class="create-account paper-btn" type="submit" id="purple">Submit</button>
+                    </div>
+                </form>
+                
                 <!-- need JS ? to open log-in modal on:click of "log-in" -->
                 <p>
                     Already have an account? <a href="#logIn" data-target="#logIn" data-toggle="modal">Log
@@ -106,7 +50,7 @@
                 </p>
             </div>
     </section>
-
+<script src="/javascript/signUp.js"></script>
 </body>
 
 </html>
