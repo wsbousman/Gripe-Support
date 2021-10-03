@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, Category, Hug, User } = require('../models');
+const { Post, Category, Hug, User, Comment } = require('../models');
 const loggedIn = require('../utils/loggedIn');
 
 router.get('/', async (req, res) => {
@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     });
 });
 
-router.get('/gripe', (req,res) => {
+router.get('/gripes', (req,res) => {
     Post.findAll({
         where:{
             category_id: 2 
@@ -43,7 +43,7 @@ router.get('/gripe', (req,res) => {
     });
 });
 
-router.get('/encouragement', (req,res) => {
+router.get('/encouragements', (req,res) => {
     Post.findAll({
         where:{
             category_id: 1 

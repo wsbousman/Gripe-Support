@@ -12,44 +12,6 @@
 </head>
 
 <body class="dashboard">
-    <!-- navigation bar -->
-    <section class="header margin-bottom-large">
-        <nav class="border fixed split-nav">
-            <div class="nav-brand">
-
-                <!-- log-out sitch -->
-                <label class="paper-btn btn-small enc-logout-btn" for="modal-1">
-                    <h4>
-                        <a>log out</a>
-                    </h4>
-                </label>
-            </div>
-
-            <!-- collapsible menu with links to other pages -->
-            <div class="collapsible">
-                <input id="collapsible1" type="checkbox" name="collapsible1">
-                <label class="paper-btn" id="menuEncButton" for="collapsible1">
-                    <h5 class="padding-none margin-small flex-edges">menu</h5>
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                    <div class="bar4"></div>
-                </label>
-                <div class="collapsible-body padding-small">
-                    <ul class="inline">
-                        <li><a class="navLinkEnc" href="./dashboard.html">my dashboard</a></li>
-                        <li><a class="navLinkEnc" href="./gripes.html">gripes</a></li>
-                        <li><a href="./index.html">
-                                <img src="./assets/images/hearts/little-green.png"
-                                    class="aligned-middle paper-btn btn-small no-border" id="little-green">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </section>
-
     
     <section class="flex-center row" id="encHeading">
         <div class="col flex-center">
@@ -130,20 +92,21 @@
             <div class="col full-rotate flex-center">
                 <div class="paper border-3 padding-large margin-top-small">
                     <div class="margin-small">
-                        <label for="postNumber">encouragement </label>
+                        {{#each posts as |post|}}
+                        <label for="postNumber">{{post.content}} </label>
+                        {{/each}}
+                    <form id="comment-form">
                         <div>
                             <container class="myPost card paper border">
-                                <div class="card-text">
-                                    okay, yeah, maybe your idea isn't original--like yes, someone's already adapted that
-                                    shakespearean play--and yes, someone's already painted every flower ever,
-                                    probably--and someone's definitely written a song with the same heartbreak as
-                                    yours--but. it hasn't been done the way you'd do it, and that's worth pursuing.
-                                </div>
+                                <textarea class="card-text" name="comment-body" placeholder="Say something encouraging">
+                                </textarea>
                             </container>
                         </div>
-                    </div>
-                    <p></p>
-                    <label type="submit" class="paper-btn btn-small right" id="commentEncBtn">comment</label>
+                        </div>
+                        <p></p>
+                        <label type="submit" class="paper-btn btn-small right" id="commentEncBtn">comment</label>
+                    </form>    
+                    
                 </div>
                 <!-- comments -->
                 <div class="row flex-right marg">
@@ -166,59 +129,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col full-rotate flex-center">
-                <div class="paper border-2 padding-large">
-                    <div class="">
-                        <div class="text-box">
-                            <label for="postNumber">encouragement</label>
-                            <div>
-                                <container class="myPost card paper border">
-                                    <div class="card-text">You never know what little act of kindness can change
-                                        someone's entire world.</div>
-                                </container>
-                            </div>
-                        </div>
-                        <p></p>
-                        <label type="submit" class="paper-btn btn-small right" id="commentEncBtn">comment</label>
-                    </div>
-                </div>
-                <!-- hug counter -->
-                <div class="row flex-right marg">
-                    <div class="col flex">
-                        <div class="margin-none" id="commentBox">
-                            <p class="card-title paper border-6 margin-none padding" id="commentEncHeader">comments:</p>
-                            <div class="container paper border-6 padding">It's true! I don't know how many times my
-                                school ID fell out of my pocket, or my bag, or my wallet, and someone always ran after
-                                me to give it to me.</div>
-                            <div class="container paper border-6 padding">I was having a really bad day and this girl on
-                                the bus told me she really liked my jacket. I don't know why, but it really cheered me
-                                up.</div>
-                            <div class="container paper border-6 padding">Once, I paid for this lady's groceries in
-                                front of me bc she was obviously struggling and couldn't come up with all $18 worth of
-                                veg and baby formula. And the dude behind me was like, "you know you just got scammed,
-                                right?" Like??? 1. Mind your business. 2. Even if she /had/ scammed me, it was for help
-                                paying for groceries. People need to eat, and so do babies. I'd rather live in a world
-                                where we took care of each other instead of assuming the worst.</div>
-                            <div class="container paper border-6 padding">The lady working the donut counter handed me a
-                                free donut because I hesitated over spending the 99 cents it'd cost. I hadn't eaten
-                                anything all day, I'd been working my own retail job for minimum wage, and I don't know
-                                if she could see the run-down, broke-college-student on me, but she really helped me
-                                out. I never saw her again, but I'll always remember that free donut. Didn't feel like
-                                charity--it felt like being cared for.</div>
-                            <div class="container paper border-6 padding">a lotta these comments are about food. almost
-                                like there's a wealth disparity and food desert crisis going on or something. Seriously,
-                                though, I know what it's like not to have food for days, and it just breaks you, so if
-                                I'm ever in the position to help somebody out like that, I try to do what I can.</div>
-                        </div>
-                    </div>
-                    <div class="flex-spaces paper-btn border-4 padding-small margin-top-none hug-counter" id="hug-counterEnc">
-                        <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png" alt="hug-icon">
-                        <!-- number of hugs -->
-                        <p class="flex-center padding-right-small">29</p>
-                    </div>
-                </div>
-            </div>
-            </div>
+            
         </section>
 
         <section id="nextPreviousBtns">
@@ -226,3 +137,7 @@
                 <a id="nextEncBtn" class="next paper-btn btn-large">></a>
             </div>
         </section>
+
+    </section>
+<script src="/javascript/viewEncouragements.js"></script>
+</body>
