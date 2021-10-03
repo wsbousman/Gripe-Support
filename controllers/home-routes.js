@@ -42,7 +42,7 @@ router.get('/gripe', (req,res) => {
 router.get('/encouragement', (req,res) => {
     Post.findAll({
         where:{
-            category_id: 2 
+            category_id: 1 
         },
         attributes: [
             'id',
