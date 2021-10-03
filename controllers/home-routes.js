@@ -1,9 +1,12 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, Category, Hug, User } = require('../models');
+const loggedIn = require('../utils/loggedIn');
 
 router.get('/', async (req, res) => {
-    res.render('homepage');
+    res.render('homepage', {
+    loggedIn: req.session.loggedIn
+    });
 });
 
 router.get('/gripe', (req,res) => {
@@ -31,7 +34,8 @@ router.get('/gripe', (req,res) => {
     .then( dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('gripes', {
-            posts
+            posts,
+            loggedIn: req.session.loggedIn
         });
     })
     .catch( err => {
@@ -64,20 +68,13 @@ router.get('/encouragement', (req,res) => {
     .then( dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('encouragements', {
-            posts
+            posts,
+            loggedIn: req.session.loggedIn
         });
     })
     .catch( err => {
         res.status(500).json(err);
     });
-});
-
-router.get('/login', (req,res) => {
-   if(req.session.loggedIn) {
-       res.redirect('/');
-       return;
-   }
-   res.render('login');
 });
 
 router.get('/signup', (req,res) => {

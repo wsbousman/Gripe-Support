@@ -6,9 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css">
     <link href="/stylesheets/stylesheet.css" rel="stylesheet" /> 
-    <title>Document</title>
+    <title>gripe//SUPPORT</title>
 </head>
 <body>
-    {{{ body }}}
+    <header>
+          <!-- navigation bar -->
+            <section class="header">
+                <nav class="border fixed split-nav">
+                <div class="nav-brand">
+
+                    <!-- log-in and sign-up modal -->
+                    {{#unless loggedIn}}
+                    <label class="paper-btn btn-small" for="modal-1">
+                    <h4>
+                        <a>log in</a>
+                    </h4>
+                    </label>
+                    {{/unless}}
+
+                    {{#if loggedIn}}
+                      <label class="paper-btn btn-small">
+                    <h4>
+                        <a id="logout">log out</a>
+                    </h4>
+                    </label>
+                    {{/if}}
+
+                </div>
+                <input class="modal-state" id="modal-1" type="checkbox">
+                <div class="modal">
+                    <form class="login-form">
+                        <label class="modal-bg" for="modal-1"></label>
+                        <div class="modal-body">
+                        <label class="btn-close" for="modal-1">X</label>
+                        <h4 class="modal-title">gripe//support</h4>
+                        <h5 class="modal-subtitle">you need an account to make posts</h5>
+                        <p class="modal-text">
+                        <div class="form-group">
+                            <label for="paperInputs1">Username</label>
+                            <input id="username-login" class="input-block" type="text" placeholder="xxxxxxx@xxx.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="paperInputs1">Password</label>
+                            <input id="password-login" class="input-block" type="text" placeholder="we hope you're using a password manager">
+                            <p></p>
+                            <button class="aligned-right paper-btn" type="submit">Log In</button>
+                        </div>
+                    </form>
+                    <p>
+                        <a href="/signup">Sign up </a>for an account
+                    </p>
+                </div>
+          
+                </div>
+
+                <!-- collapsible menu with links to other pages -->
+                <div class="collapsible">
+                    <input id="collapsible1" type="checkbox" name="collapsible1">
+                    <label class="paper-btn" for="collapsible1">
+                    <h5 class="padding-none margin-small flex-edges">menu</h5>
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                    </label>
+                    <div class="collapsible-body">
+                    <ul class="inline">
+                        <li><a href="./gripes.html">gripes</a></li>
+                        <li><a href="./encouragements.html">encouragements</a></li>
+                        <li>
+                        <img class="aligned-middle" src="./assets/images/hearts/little-purple.png" class="no-border">
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                </nav>
+            </section>
+    </header>
+
+    <main>
+
+        {{{ body }}}
+    
+    </main>
+
+    <footer>
+
+    </footer>
+
+  {{#unless loggedIn}}
+    <script src="/javascript/logIn.js"></script>
+  {{/unless}}   
+  {{#if loggedIn}}
+  <script src="/javascript/logOut.js"></script>
+  {{/if}}
+   
 </body>
 </html>
+
