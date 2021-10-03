@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css">
-    <link rel="stylesheet" href="./assets/css/stylesheet.css">
+    <link rel="stylesheet" href="/stylesheets/stylesheet.css">
     <title>gripe//support-view-my-post</title>
 
 </head>
@@ -93,15 +93,11 @@
                 <div class="paper border-3 padding-large margin-top-small">
                     <div class="margin-small">
         
-                        <label for="postNumber" id="{{post.id}}">{{post.content}}</label>
-                        {{#each posts as |post|}}
-                        {{post.id}}
-                        {{/each}}
+                        <label for="postNumber" class="post-id" id="{{post.id}}">{{post.content}}</label>
                     <form class="comment-form">
                         <div>
                             <container class="myPost card paper border">
-                                <textarea class="card-text" name="comment-body" placeholder="Say something encouraging">
-                                    
+                                <textarea class="card-text" name="comment-body" placeholder="Say something encouraging">            
                                 </textarea>
                             </container>
                         </div>
@@ -116,22 +112,22 @@
                     <div class="col flex-spaces">
                         <div class="margin-none" id="commentBox">
                             <p class="card-title paper border-6 margin-none padding" id="commentEncHeader">comments:</p>
-                            <div class="container paper border-6 padding">wow i was literally just thinking about how my
-                                story's tropes were soooooo over-done and why can't I think of anything original?? but i
-                                like writing it. i like sharing it with my friends at school. they seem to like it, too.
-                                i just haven't written in months, but now i feel like writing the next chapter!</div>
-                            <div class="container paper border-6 padding">i also feel this way about writing comments.
-                                like is there anything i can say that hasn't already been said?</div>
+
+                            {{#each post.comments as |comment|}}
+                            <div class="container paper border-6 padding">{{comment.content}}</div>
+                            {{/each}}
+
                         </div>
                     </div>
-                    <div class="flex-spaces paper-btn border-4 padding-small margin-top-none hug-counter"
-                        id="hug-counterEnc">
-                        <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png" alt="hug-icon">
-                        <!-- number of hugs -->
-                        <button id="hug-btn">
-                            <p class="flex-center padding-right-small">11</p>
-                        </button>
-                    </div>
+                    <button id="hug-btn">
+                        <div class="flex-spaces paper-btn border-4 padding-small margin-top-none hug-counter"
+                            id="hug-counterEnc">
+                        
+                            <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png" alt="hug-icon">
+                            <!-- number of hugs --> 
+                            <p class="flex-center padding-right-small">{{post.hug_count}}</p>
+                        </div>
+                    </button>
                 </div>
             </div>
             

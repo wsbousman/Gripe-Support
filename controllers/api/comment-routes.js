@@ -81,7 +81,7 @@ router.get('/:id', (req, res) => {
 router.post('/', loggedIn, (req, res) => {
     Comment.create({
         content: req.body.content,
-        user_id: req.body.user_id,
+        user_id: req.session.user_id,
         post_id: req.body.post_id
     })
     .then(dbCommentData => res.status(200).json(dbCommentData))
