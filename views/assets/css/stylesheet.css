@@ -144,6 +144,12 @@ textarea {
     justify-self: right;
 }
 
+#gripeCommentBtn {
+    background-color: #cbdcf4;
+    display: inline-flex;
+    justify-self: right;
+}
+
 .modalPostTextArea {
     color: black;
     background-color: white;
