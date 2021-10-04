@@ -67,6 +67,7 @@ router.get('/encouragements', (req,res) => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         const random = Math.floor(Math.random() * (posts.length))
         const post = posts[random];
+        console.log(post);
         res.render('encouragements', {
             post,
             loggedIn: req.session.loggedIn

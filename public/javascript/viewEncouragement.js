@@ -1,17 +1,11 @@
 // This gets linked on encouragements.handlebars
-let post_id = document.querySelector('label [for="postNumber"]').id();
-console.log('post_id: ',post_id);
+let post_id = document.querySelector('.post-id').id.trim();
 
 // Button logic for commenting
 async function commentFormHandler(event){
     event.preventDefault();
 
     const content = document.querySelector('textarea[name="comment-body"]').value.trim();
-
-    const post_id = window.location.toString().split('/')[
-        window.location.toString().split('/').length -1
-    ];
-
     if(content) {
         const response = await fetch('/api/comments', {
             method: 'POST',
@@ -37,24 +31,7 @@ async function commentFormHandler(event){
 // Button logic for getting a new random encouragement 
 async function encouragementHandler(event){
     event.preventDefault();
-
-    if(comment_text) {
-        const response = await fetch('/', {
-            method: 'GET',
-            body: JSON.stringify({
-                content
-            }),
-            headers: {
-                'Content-type': 'application/json'
-            }
-        });
-
-        if(response.ok) {
             document.location.reload();
-        } else {
-            alert(response.statusText);
-        }
-    }
 }
 
 
@@ -62,14 +39,11 @@ async function encouragementHandler(event){
 async function hugHandler(event) {
     event.preventDefault();
 
-    const id = window.location.toString().split('/') [
-        window.location.toString().split('/').length - 1
-    ];
-
-    const response = await fetch('/api/posts/hug', {
+    const response = await fetch('/api/posts/giveHug', {
         method: 'PUT',
         body: JSON.stringify({
-            post_id: id
+            post_id,
+            category_id: 1
         }),
         headers: {
             'Content-Type': 'application/json'

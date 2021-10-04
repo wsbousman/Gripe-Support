@@ -82,7 +82,13 @@ router.post('/', (req, res) => {
         admin: req.body.admin
     })
         .then(dbUserData => {
-            res.status(200).json(dbUserData);
+            req.session.save(() => {
+                req.session.user_id = dbUserData.id,
+                req.session.admin = dbUserData.admin,
+                req.session.loggedIn = true
+
+                res.status(200).json({user: dbUserData, message: 'You are now logged in!' });
+            });
         })
         .catch(err => {
             console.log(err);

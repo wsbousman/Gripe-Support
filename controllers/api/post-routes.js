@@ -128,7 +128,7 @@ router.post('/', loggedIn, (req, res) => {
 router.put('/giveHug', loggedIn, (req, res) => {
     // First, create a new Hug in the hug model, then find the post that was given the hug, and return it with the new hug count. 
     Hug.create({
-        user_id: req.body.user_id,
+        user_id: req.session.user_id,
         post_id: req.body.post_id,
         category_id: req.body.category_id
     })
