@@ -7,12 +7,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css">
     <link rel="stylesheet" href="/stylesheets/stylesheet.css">
-    <title>gripe//support-view-my-post</title>
+    <title>gripe//support-encouragements</title>
 
 </head>
 
 <body class="dashboard">
-    
+
+    <!-- collapsible menu with links to other pages -->
+    <div class="collapsible">
+        <input id="collapsible1" type="checkbox" name="collapsible1">
+        <label class="paper-btn" for="collapsible1">
+            <h5 class="padding-none margin-small menuEncButton flex-edges">menu</h5>
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </label>
+        <div class="collapsible-body">
+            <ul class="inline">
+                <li><a href="/gripes">gripes</a></li>
+                <li><a href="/encouragements">encouragements</a></li>
+                <li>
+                    <a href="/"><img class="aligned-middle" src="./assets/images/hearts/little-green.png"
+                            class="no-border"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <section class="flex-center row" id="encHeading">
         <div class="col flex-center">
             <div class="aligned-right flex-spaces">
@@ -37,10 +58,11 @@
                                     <textarea class="input-block modalPostTextArea" id="large-input"></textarea>
                                 </div>
                                 <p></p>
-                                <label class="aligned-right paper-btn" for="submitGripePost" id="dashModalPostBtn">post</label>
+                                <label class="aligned-right paper-btn" for="submitGripePost"
+                                    id="dashModalPostBtn">post</label>
                             </div>
                         </div>
-            
+
                         <!-- modal to post encouragement on:click of button-->
                         <div class="encModal">
                             <label class="encouragement-btn" for="modal-enc-post">
@@ -59,14 +81,15 @@
                                     <textarea class="input-block modalPostTextArea" id="large-input"></textarea>
                                 </div>
                                 <p></p>
-                                <label class="aligned-right paper-btn" for="submitEncPost" id="dashModalPostBtn">post</label>
+                                <label class="aligned-right paper-btn" for="submitEncPost"
+                                    id="dashModalPostBtn">post</label>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    
+
         <div class="col padding-small flex-center" id="postPage">
             <div class="logo">
                 <div class="padding-top-small">
@@ -84,7 +107,8 @@
             </div>
         </div>
         <div class="encTitle flex-center">
-            <h2 id="encTitleBanner" class="aligned-middle enc-title paper border margin-none full-rotate">encouragements</h2>
+            <h2 id="encTitleBanner" class="aligned-middle enc-title paper border margin-none full-rotate">encouragements
+            </h2>
         </div>
 
         <!-- textarea -->
@@ -92,20 +116,22 @@
             <div class="col full-rotate flex-center">
                 <div class="paper border-3 padding-large margin-top-small">
                     <div class="margin-small">
-        
-                        <label for="postNumber" class="post-id" id="{{post.id}}">{{post.content}}</label>
-                    <form class="comment-form">
-                        <div>
-                            <container class="myPost card paper border">
-                                <textarea class="card-text" name="comment-body" placeholder="Say something encouraging">            
+
+                        <label for="postNumber" class="post-id" id="{{post.id}}">encouragement</label>
+                        <form class="comment-form">
+                            <div>
+                                <container class="myPost card paper border">
+                                    <textarea class="card-text" name="comment-body"
+                                        placeholder="Say something encouraging">
+                                        {{post.content}}
                                 </textarea>
-                            </container>
-                        </div>
-                        </div>
-                        <p></p>
-                        <button type="submit" class="paper-btn btn-small right" id="commentEncBtn">comment</button>
-                    </form>    
-                    
+                                </container>
+                            </div>
+                    </div>
+                    <p></p>
+                    <button type="submit" class="paper-btn btn-small right" id="commentEncBtn">comment</button>
+                    </form>
+
                 </div>
                 <!-- comments -->
                 <div class="row flex-right marg">
@@ -122,15 +148,16 @@
                     <button id="hug-btn">
                         <div class="flex-spaces paper-btn border-4 padding-small margin-top-none hug-counter"
                             id="hug-counterEnc">
-                        
-                            <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png" alt="hug-icon">
-                            <!-- number of hugs --> 
+
+                            <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png"
+                                alt="hug-icon">
+                            <!-- number of hugs -->
                             <p class="flex-center padding-right-small">{{post.hug_count}}</p>
                         </div>
                     </button>
                 </div>
             </div>
-            
+
         </section>
 
         <section id="nextPreviousBtns">
@@ -140,5 +167,5 @@
         </section>
 
     </section>
-<script src="/javascript/viewEncouragement.js"></script>
+    <script src="/javascript/viewEncouragement.js"></script>
 </body>

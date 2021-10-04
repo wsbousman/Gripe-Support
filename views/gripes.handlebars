@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html class="dark" lang="en">
 
 <head>
@@ -7,27 +8,66 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css">
     <link rel="stylesheet" href="./assets/css/stylesheet.css">
-    <title>gripe//support-view-my-post</title>
+    <title>gripe//support-gripes</title>
 
 </head>
 
-<body class="dashboard">
+<body class="gripes">
     <!-- navigation bar -->
     <section class="header margin-bottom-large">
         <nav class="border fixed split-nav">
             <div class="nav-brand">
 
                 <!-- log-out sitch -->
+
+                {{#unless loggedIn}}
                 <label class="paper-btn btn-small gripe-logout-btn" for="modal-1">
                     <h4>
-                        <a>log out</a>
+                        <a>log in</a>
+                    </h4>
+                </label>
+
+                <div class="collapsible">
+                    <input id="collapsible1" type="checkbox" name="collapsible1">
+
+                    <label class="paper-btn" id="menuGripeButton" for="collapsible1">
+                        <h5 class="padding-none margin-small flex-edges">menu</h5>
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </label>
+                    <div class="collapsible-body padding-small">
+                        <ul class="inline">
+                            <li><a class="navLinkGripe" href="./sign-up.handlebars">sign-up</a></li>
+                            <li><a class="navLinkGripe" href="./encouragements.handlebars">encouragements</a></li>
+                            <li><a href="./index.html">
+                                    <img src="./assets/images/hearts/little-blue.png"
+                                        class="aligned-middle paper-btn btn-small no-border" id="little-blue">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                {{/unless}}
+
+                {{#if loggedIn}}
+                <label class="paper-btn btn-small" for="modal-1">
+                    <h4>
+                        <a href="/dashboard">Dashboard</a>
+                    </h4>
+                </label>
+                <label class="paper-btn btn-small">
+                    <h4>
+                        <a id="logout">log out</a>
                     </h4>
                 </label>
             </div>
 
             <!-- collapsible menu with links to other pages -->
+
             <div class="collapsible">
                 <input id="collapsible1" type="checkbox" name="collapsible1">
+
                 <label class="paper-btn" id="menuGripeButton" for="collapsible1">
                     <h5 class="padding-none margin-small flex-edges">menu</h5>
                     <div class="bar1"></div>
@@ -47,10 +87,11 @@
                     </ul>
                 </div>
             </div>
+            {{/if}}
         </nav>
     </section>
 
-    
+
     <section class="flex-center row" id="gripeHeading">
         <div class="col flex-center">
             <div class="aligned-right flex-spaces">
@@ -75,10 +116,11 @@
                                     <textarea class="input-block modalPostTextArea" id="large-input"></textarea>
                                 </div>
                                 <p></p>
-                                <label class="aligned-right paper-btn" for="submitGripePost" id="dashModalPostBtn">post</label>
+                                <label class="aligned-right paper-btn" for="submitGripePost"
+                                    id="dashModalPostBtn">post</label>
                             </div>
                         </div>
-            
+
                         <!-- modal to post encouragement on:click of button-->
                         <div class="encModal">
                             <label class="encouragement-btn" for="modal-enc-post">
@@ -97,14 +139,15 @@
                                     <textarea class="input-block modalPostTextArea" id="large-input"></textarea>
                                 </div>
                                 <p></p>
-                                <label class="aligned-right paper-btn" for="submitEncPost" id="dashModalPostBtn">post</label>
+                                <label class="aligned-right paper-btn" for="submitEncPost"
+                                    id="dashModalPostBtn">post</label>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    
+
         <div class="col padding-small flex-center" id="postPage">
             <div class="logo">
                 <div class="padding-top-small">
@@ -122,75 +165,79 @@
             </div>
         </div>
         <div class="gripeTitle flex-center">
-            <h2 id="gripeTitleBanner" class="aligned-middle gripes-title paper border margin-none full-rotate">gripes</h2>
+            <h2 id="gripeTitleBanner" class="aligned-middle gripes-title paper border margin-none full-rotate">gripes
+            </h2>
         </div>
 
-        <!-- textarea -->
+        {{!--
+        <!-- textarea --> --}}
         <section class="row" id="postContainer">
             <div class="col full-rotate flex-center">
                 <div class="paper border-3 padding-large margin-top-small">
-                    <div class="margin-small">gripe</label>
+                    <div class="margin-small">
+
+
+                        <label for="postNumber" class="post-id" id="{{post.id}}">gripe</label>
                         <div>
                             <container class="myPost card paper border">
-                                <div class="card-text">CSS. I rest my case.
+                                <div class="card-text">
+                                    {{post.content}}
                                 </div>
                             </container>
                         </div>
                     </div>
                     <p></p>
-                    <label type="submit" class="paper-btn btn-small right" id="commentGripeBtn">comment</label>
+
+                    {{!-- add comment modal --}}
+                    <div class="gripeModal commentOnGripeModal">
+                        <label class="gripe-btn" for="modal-gripe-post">
+                            <a class="paper-btn btn-small right" id="commentGripeBtn">comment</a>
+                        </label>
+                    </div>
+                    <input class="modal-state" id="modal-gripe-post" type="checkbox">
+                    <div class="modal">
+                        <label class="modal-bg" for="modal-gripe-post"></label>
+                        <div class="modal-body">
+                            <label class="btn-close" for="modal-gripe-post">X</label>
+                            <h4 class="modal-title">gripe//support</h4>
+                            <p class="modal-text">
+                            <div class="form-group">
+                                <label for="gripeModalInput">say something encouraging</label>
+                                <textarea class="input-block modalPostTextArea" id="large-input"></textarea>
+                            </div>
+                            <p></p>
+                            <label class="aligned-right paper-btn" for="submitGripePost"
+                                id="dashModalPostBtn">post</label>
+                        </div>
+                    </div>
                 </div>
-                <!-- comments -->
+                {{!-- comments list --}}
                 <div class="row flex-right marg">
                     <div class="col flex-spaces">
                         <div class="margin-none" id="commentBox">
-                            <p class="card-title paper border-6 margin-none padding" id="commentGripeHeader">comments:</p>
-                            <div class="container paper border-6 padding">solidarity, my dude</div>
-                            <div class="container paper border-6 padding">i'm so sorry you're going through that</div>
-                            <div class="container paper border-6 padding">yeah CSS is really finicky. hope you can figure it out okay.</div>
-                            <div class="container paper border-6 padding">...i'm SOOOO lost. what's CSS??</div>
-                            <div class="container paper border-6 padding">it's a programming language used to style html pages. it's notoriously frustrating to use.</div>
+                            <p class="card-title paper border-6 margin-none padding" id="commentGripeHeader">comments:
+                            </p>
+
+                            {{each post.comments as |comment|}}
+
+                            <div class="container paper border-6 padding">{{comment.content}}</div>
+
+                            {{/each}}
                         </div>
                     </div>
-                    <div class="col flex-spaces paper-btn border-4 padding-small margin-top-none gripeHug"
-                        id="hug-counterGripe">
-                        <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png" alt="hug-icon">
-                        <!-- number of hugs -->
-                        <p class="padding-right-small">23</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col full-rotate flex-center">
-                <div class="paper border-2 padding-large">
-                    <div class="">
-                        <div class="text-box">
-                            <label for="postNumber">gripe</label>
-                            <div>
-                                <container class="myPost card paper border">
-                                    <div class="card-text">onions in EVERYTHING! in my salad, in my guac, in my sOuP??? there are more flavors in life than just onions!!!</div>
-                                </container>
-                            </div>
+
+                    {{!-- hug counter --}}
+                    <button id="hug-btn">
+                        <div class="flex-spaces paper-btn border-4 padding-small margin-top-none gripeHug"
+                            id="hug-counterGripe">
+
+                            <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png"
+                                alt="hug-icon">
+                            <!-- number of hugs -->
+                            <p class="flex-center padding-right-small">{{post.hug_count}}</p>
                         </div>
-                        <p></p>
-                        <label type="submit" class="paper-btn btn-small right" id="commentGripeBtn">comment</label>
-                    </div>
+                    </button>
                 </div>
-                <!-- hug counter -->
-                <div class="row flex-right marg">
-                    <div class="col flex">
-                        <div class="margin-none" id="commentBox">
-                            <p class="card-title paper border-6 margin-none padding" id="commentGripeHeader">comments:</p>
-                            <div class="container paper border-6 padding">i'm sorry onions are haunting you.</div>
-                            <div class="container paper border-6 padding">onions in my SOCKS! my grandma used to cut raw onions in half when we were sick and make us wear them in our socks in bed. i've never been able to eat raw onions bc of it.</div>
-                        </div>
-                    </div>
-                    <div class="flex-spaces paper-btn border-4 padding-small margin-top-none" id="hug-counterGripe">
-                        <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png" alt="hug-icon">
-                        <!-- number of hugs -->
-                        <p class="flex-center padding-right-small">21</p>
-                    </div>
-                </div>
-            </div>
             </div>
         </section>
 
@@ -199,3 +246,6 @@
                 <a id="nextGripeBtn" class="next paper-btn btn-large">></a>
             </div>
         </section>
+    </section>    
+    <script src="../public/javascript/viewGripe.js"></script>
+</body>
