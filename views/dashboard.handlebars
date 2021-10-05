@@ -1,4 +1,3 @@
-<
 <html class="dark" lang="en">
 
 
@@ -37,54 +36,23 @@
                 <div class="margin-large">
                     <div class="collapsible margin-small">
                         <input id="collapsible" type="checkbox" name="collapsible">
-                        <label id="myPostHistoryPostLabels" for="collapsible" class="paper border">one</label>
+                        {{#each posts as |post|}}
+                        <label id="myPostHistoryPostLabels" for="collapsible" class="paper border">{{post.created_at}}</label>
                         <div class="collapsible-body paper border">
-                            <span>Bacon ipsum dolor sit amet beef venison beef ribs kielbasa. Sausage pig leberkas,
-                                t-bone sirloin shoulder bresaola...</span>
+                            <span>{{post.content}}</span>
                             <div class="">
                                 <a href="#post-id" class="paper-btn btn-small">view post</a>
                                 <button type="delete" class="paper-btn btn-small" id="pink">delete</button>
                             </div>
                         </div>
+                        {{/each}}
                     </div>
-                    <div class="collapsible margin-small">
-                        <input id="collapsible2" type="checkbox" name="collapsible">
-                        <label id="myPostHistoryPostLabels" for="collapsible2" class="paper border">two</label>
-                        <div class="collapsible-body paper border">
-                            <span>Bacon ipsum dolor sit amet beef venison beef ribs kielbasa. Sausage pig leberkas,
-                                t-bone sirloin shoulder bresaola...</span>
-                            <div class="">
-                                <a href="#post-id" class="paper-btn btn-small">view post</a>
-                                <button type="delete" class="paper-btn btn-small" id="pink">delete</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="collapsible margin-small">
-                        <input id="collapsible3" type="checkbox" name="collapsible">
-                        <label id="myPostHistoryPostLabels" for="collapsible3" class="paper border">three</label>
-                        <div class="collapsible-body paper border" >
-                            <span>Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin
-                                ball tip turducken...</span>
-                            <div class="">
-                                <a href="#post-id" class="paper-btn btn-small">view post</a>
-                                <button type="delete" class="paper-btn btn-small" id="pink">delete</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="collapsible margin-small">
-                        <input id="collapsible4" type="checkbox" name="collapsible">
-                        <label id="myPostHistoryPostLabels" for="collapsible4" class="paper border">four</label>
-                        <div class="collapsible-body paper border">
-                            <span>Bacon ipsum dolor sit amet beef venison beef ribs kielbasa. Sausage pig leberkas,
-                                t-bone sirloin shoulder bresaola...</span>
-                            <div class="">
-                                <a href="#post-id" class="paper-btn btn-small">view post</a>
-                                <button type="delete" class="paper-btn btn-small" id="pink">delete</button>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+            </div> 
+        </div>       
+                    
+                   
     </section>
 
-</body>
 
 </html>
