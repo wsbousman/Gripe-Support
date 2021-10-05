@@ -238,7 +238,6 @@ textarea {
     break-inside: avoid;
 }
 
-
 #nextPreviousBtns {
     position: fixed;
     bottom: 0px;
@@ -313,5 +312,3 @@ textarea {
     color: #474644;
     border-color: #474644;
 }
-
-
