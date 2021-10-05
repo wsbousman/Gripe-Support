@@ -1,7 +1,7 @@
 <html class="dark" lang="en">
 
 <body class="dashboard">
-    
+
 
     <section class="flex-center row" id="gripeHeading">
         <div class="col flex-center">
@@ -11,7 +11,7 @@
 
                         {{!-- modals for adding encouragements and gripes --}}
                         {{> addEncGripe}}
-                        
+
                     </div>
                 </div>
             </div>
@@ -46,75 +46,56 @@
                     <div class="margin-small">
 
 
-                        <label for="postNumber" class="post-id" id="{{post.id}}">gripe</label>
-                        <div>
-                            <container class="myPost card paper border">
-                                <div class="card-text">
-                                    {{post.content}}
-                                </div>
-                            </container>
-                        </div>
+                        <label for="postNumber" class="post-id" id="{{post.id}}">{{post.content}}</label>
+                        <form class="comment-form">
+                            <div>
+                                <container class="myPost card paper border">
+                                    <textarea class="myPost" name="gripeComment"
+                                        placeholder="Say something encouraging"></textarea>
+                                </container>
+                            </div>
                     </div>
                     <p></p>
+                    <button type="submit" class="paper-btn btn-small right" id="commentEncBtn">comment</button>
+                    </form>
 
-                    {{!-- add comment modal --}}
-                    <div class="gripeModal commentOnGripeModal">
-                        <label class="gripe-btn" for="modal-gripe-post">
-                            <a class="paper-btn btn-small right" id="commentGripeBtn">comment</a>
-                        </label>
                     </div>
-                    <input class="modal-state" id="modal-gripe-post" type="checkbox">
-                    <div class="modal">
-                        <label class="modal-bg" for="modal-gripe-post"></label>
-                        <div class="modal-body">
-                            <label class="btn-close" for="modal-gripe-post">X</label>
-                            <h4 class="modal-title">gripe//support</h4>
-                            <p class="modal-text">
-                            <div class="form-group">
-                                <label for="gripeModalInput">can you relate? send OP some support in solidarity.</label>
-                                <textarea class="input-block" name="gripeComment" id="large-input"></textarea>
+                    {{!-- comments list --}}
+                    <div class="row flex-right marg">
+                        <div class="col flex-spaces">
+                            <div class="margin-none" id="commentBox">
+                                <p class="card-title paper border-6 margin-none padding" id="commentGripeHeader">
+                                    comments:
+                                </p>
+
+                                {{#each post.comments as |comment|}}
+
+                                <div class="container paper border-6 padding">{{comment.content}}</div>
+
+                                {{/each}}
                             </div>
-                            <p></p>
-                            <label class="aligned-right paper-btn" for="submitGripeComment"
-                                id="gripeCommentBtn">post</label>
                         </div>
+
+                        {{!-- hug counter --}}
+                        <button id="hug-btn">
+                            <div class="flex-spaces paper-btn border-4 padding-small margin-top-none gripeHug"
+                                id="hug-counterGripe">
+
+                                <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png"
+                                    alt="hug-icon">
+                                <!-- number of hugs -->
+                                <p class="flex-center padding-right-small">{{post.hug_count}}</p>
+                            </div>
+                        </button>
                     </div>
                 </div>
-                {{!-- comments list --}}
-                <div class="row flex-right marg">
-                    <div class="col flex-spaces">
-                        <div class="margin-none" id="commentBox">
-                            <p class="card-title paper border-6 margin-none padding" id="commentGripeHeader">comments:
-                            </p>
-
-                            {{#each post.comments as |comment|}}
-
-                            <div class="container paper border-6 padding">{{comment.content}}</div>
-
-                            {{/each}}
-                        </div>
-                    </div>
-
-                    {{!-- hug counter --}}
-                    <button id="hug-btn">
-                        <div class="flex-spaces paper-btn border-4 padding-small margin-top-none gripeHug"
-                            id="hug-counterGripe">
-
-                            <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png"
-                                alt="hug-icon">
-                            <!-- number of hugs -->
-                            <p class="flex-center padding-right-small">{{post.hug_count}}</p>
-                        </div>
-                    </button>
-                </div>
-            </div>
         </section>
 
         <section id="nextPreviousBtns">
             <div class="margin-bottom-large">
-                <a id="nextGripeBtn" class="next paper-btn btn-large">></a>
+                <btn id="nextGripeBtn" class="next paper-btn btn-large">></btn>
             </div>
         </section>
-    </section>    
-    <script src="/public/javascript/viewGripe.js"></script>
+    </section>
+    <script src="/javascript/viewGripe.js"></script>
 </body>

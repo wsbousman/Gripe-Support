@@ -2,13 +2,13 @@
 
 // Side arrow button which will get another random gripe
 
-let post_id = document.querySelector('.comment-body').id.trim();
+let post_id = document.querySelector('.post-id').id.trim();
 
 // Button logic for commenting
 async function commentFormHandler(event){
     event.preventDefault();
 
-    const content = document.querySelector('textarea[name=""]').value.trim();
+    const content = document.querySelector('textarea[name="gripeComment"]').value.trim();
     if(content) {
         const response = await fetch('/api/comments', {
             method: 'POST',
@@ -31,6 +31,7 @@ async function commentFormHandler(event){
 
 // Button logic for getting a random gripe post 
 async function gripeHandler(event){
+    console.log('hello');
     event.preventDefault();
             document.location.reload();
 }
@@ -44,7 +45,7 @@ async function hugHandler(event) {
         method: 'PUT',
         body: JSON.stringify({
             post_id,
-            category_id: 1
+            category_id: 2
         }),
         headers: {
             'Content-Type': 'application/json'
