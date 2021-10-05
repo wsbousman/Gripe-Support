@@ -1,6 +1,19 @@
 <html class="dark" lang="en">
 
-<body class="dashboard">
+<body class="dashboard">    <section class="flex-center row" id="encHeading">
+        <div class="col flex-center">
+            <div class="aligned-right flex-spaces">
+                <div class="margin-top-large">
+                    <div class="aligned-middle" id="logo and posts">
+
+                        {{!-- modals for adding encouragements and gripes --}}
+                        {{> addEncGripe}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <div class="col padding-small flex-center" id="postPage">
             <div class="logo">
@@ -55,10 +68,9 @@
 
                         </div>
                     </div>
-                    <button id="hug-btn">
-                        <div class="flex-spaces paper-btn border-4 padding-small margin-top-none hug-counter"
+                    <button id="hug-btn no-border">
+                        <div class="flex-spaces padding-small margin-top-none hug-counter"
                             id="hug-counterEnc">
-
                             <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png"
                                 alt="hug-icon">
                             <!-- number of hugs -->
