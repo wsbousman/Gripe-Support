@@ -1,15 +1,5 @@
-<!DOCTYPE html>
+
 <html class="dark" lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css">
-    <link rel="stylesheet" href="/stylesheets/stylesheet.css">
-    <title>gripe//support-encouragements</title>
-
-</head>
 
 <body class="dashboard">
 
@@ -75,14 +65,12 @@
                 <div class="paper border-3 padding-large margin-top-small">
                     <div class="margin-small">
 
-                        <label for="postNumber" class="post-id" id="{{post.id}}">encouragement</label>
+                        <label for="postNumber" class="post-id" id="{{post.id}}">{{post.content}}</label>
                         <form class="comment-form">
                             <div>
                                 <container class="myPost card paper border">
-                                    <textarea class="card-text" name="comment-body"
-                                        placeholder="Say something encouraging">
-                                        {{post.content}}
-                                </textarea>
+                                    <textarea class="myPost" name="comment-body"
+                                        placeholder="Say something encouraging"></textarea>
                                 </container>
                             </div>
                     </div>
