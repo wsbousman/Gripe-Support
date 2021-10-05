@@ -14,8 +14,6 @@
                 </div>
             </div>
         </div>
- 
-        <!--  -->
         <div class="col flex-center">
             <div class="margin-top-large  no-border">
                 <div class="margin-small" id="heart-pink">
@@ -29,33 +27,17 @@
     <section>
         <div class="col-12 full-rotate">
             <h3 class="aligned-middle paper border">my post history</h3>
-            <!-- will make this dynamic in separate js file but will live here atm until I can map out all of the things -->
             <div class="container paper border" id="postList">
                 <div class="margin-large">
-                    <div class="collapsible margin-small">
-                        <input id="collapsible" type="checkbox" name="collapsible">
-                        <label id="myPostHistoryPostLabels" for="collapsible" class="paper border">one</label>
-                        <div class="collapsible-body paper border">
-                            <span>Bacon ipsum dolor sit amet beef venison beef ribs kielbasa. Sausage pig leberkas,
-                                t-bone sirloin shoulder bresaola...</span>
-                            <div class="">
-                                <a href="#post-id" class="paper-btn btn-small">view post</a>
-                                <button type="delete" class="paper-btn btn-small" id="pink">delete</button>
-                            </div>
+                    <label for="postNumber" class="post-id" id="{{post.id}}">userpost</label>
+                        <div>
+                            <container class="myPost card paper border">
+                                <div class="card-text">
+                                    {{post.content}}
+                                    <p>test</p>
+                                </div>
+                            </container>
                         </div>
-                    </div>
-                    <div class="collapsible margin-small">
-                        <input id="collapsible2" type="checkbox" name="collapsible">
-                        <label id="myPostHistoryPostLabels" for="collapsible2" class="paper border">two</label>
-                        <div class="collapsible-body paper border">
-                            <span>Bacon ipsum dolor sit amet beef venison beef ribs kielbasa. Sausage pig leberkas,
-                                t-bone sirloin shoulder bresaola...</span>
-                            <div class="">
-                                <a href="#post-id" class="paper-btn btn-small">view post</a>
-                                <button type="delete" class="paper-btn btn-small" id="pink">delete</button>
-                            </div>
-                        </div>
-                    </div>
                     <div class="collapsible margin-small">
                         <input id="collapsible3" type="checkbox" name="collapsible">
                         <label id="myPostHistoryPostLabels" for="collapsible3" class="paper border">three</label>

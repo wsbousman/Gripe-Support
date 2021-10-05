@@ -32,9 +32,8 @@ async function commentFormHandler(event){
 // Button logic for getting a random gripe post 
 async function gripeHandler(event){
     event.preventDefault();
-            document.location.reload();
+        document.location.reload();
 }
-
 
 // Button logic to add hugs to the post 
 async function hugHandler(event) {

@@ -38,13 +38,28 @@ router.get('/gripes', (req,res) => {
         res.render('gripes', {
             post,
             loggedIn: req.session.loggedIn
-        });
+        })
     })
     .catch( err => {
         res.status(500).json(err);
     });
 });
 
+router.get('/dashboard', (req,res) => {
+    User.findAll({
+        include: {
+            model: Post,
+            required: true,
+            where: {category_id: 2}
+        }
+    }).then (dbPostData => {
+        const userPosts = dbPostData
+        res.render('dashboard', {
+            userPosts
+        });
+    });
+});
+    
 router.get('/encouragements', (req,res) => {
     Post.findAll({
         where:{
