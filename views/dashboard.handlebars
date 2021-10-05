@@ -34,10 +34,10 @@
             <!-- will make this dynamic in separate js file but will live here atm until I can map out all of the things -->
             <div class="container paper border" id="postList">
                 <div class="margin-large">
+                    {{#each posts as |post|}}
                     <div class="collapsible margin-small">
-                        <input id="collapsible" type="checkbox" name="collapsible">
-                        {{#each posts as |post|}}
-                        <label id="myPostHistoryPostLabels" for="collapsible" class="paper border">{{post.created_at}}</label>
+                        <input id="collapsible{{post.id}}" type="checkbox" name="collapsible">  
+                        <label id="myPostHistoryPostLabels" for="collapsible{{post.id}}" class="paper border">You made a {{category.name}} on {{post.created_at}}</label>
                         <div class="collapsible-body paper border">
                             <span>{{post.content}}</span>
                             <div class="">
