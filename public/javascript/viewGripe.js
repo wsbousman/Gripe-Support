@@ -58,6 +58,6 @@ async function hugHandler(event) {
     }
 }
 
-document.querySelector('.comment-form').addEventListener('click', commentFormHandler);
+document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
 document.querySelector('#nextGripeBtn').addEventListener('click', gripeHandler);
 document.querySelector('#hug-btn').addEventListener('click', hugHandler);
