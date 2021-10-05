@@ -6,7 +6,7 @@ async function dashPostHandler(event){
 
     const content = document.querySelector('span[name="myPostPreview"]').value.trim();
     if(content) {
-        const response = await fetch('/api/user', {
+        const response = await fetch('/api/posts', {
             method: 'POST',
             body: JSON.stringify({
                 post_id,
@@ -58,4 +58,4 @@ async function hugHandler(event) {
 
 document.querySelector('.comment-form').addEventListener('submit', dashPostHandler);
 document.querySelector('#view-button').addEventListener('click', viewPostHandler);
-document.querySelector('#hug-btn').addEventListener('click', hugHandler);
+document.querySelector('#hug-btn').addEventListener('', hugHandler);
