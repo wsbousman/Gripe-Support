@@ -1,16 +1,14 @@
 // This will get linked in gripes.handlebars
 
-// Need add - comment button (Wait on this)
-
 // Side arrow button which will get another random gripe
 
-let post_id = document.querySelector('.post-id').id.trim();
+let post_id = document.querySelector('.comment-body').id.trim();
 
 // Button logic for commenting
 async function commentFormHandler(event){
     event.preventDefault();
 
-    const content = document.querySelector('textarea[name="comment-body"]').value.trim();
+    const content = document.querySelector('textarea[name=""]').value.trim();
     if(content) {
         const response = await fetch('/api/comments', {
             method: 'POST',
@@ -60,6 +58,6 @@ async function hugHandler(event) {
     }
 }
 
-document.querySelector('#gripeCommentBtn').addEventListener('click', commentFormHandler);
+document.querySelector('.comment-form').addEventListener('click', commentFormHandler);
 document.querySelector('#nextGripeBtn').addEventListener('click', gripeHandler);
 document.querySelector('#hug-btn').addEventListener('click', hugHandler);
