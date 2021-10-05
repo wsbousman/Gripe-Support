@@ -27,10 +27,10 @@ async function dashPostHandler(event){
 
 
 
-// Button logic for getting a new random encouragement 
+// Button logic for viewing selected post 
 async function viewPostHandler(event){
     event.preventDefault();
-            document.location.;
+            document.location.reload();
 }
 
 
