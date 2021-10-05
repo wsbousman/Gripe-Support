@@ -4,9 +4,9 @@ let post_id = document.querySelector('.post-id').id.trim();
 async function dashPostHandler(event){
     event.preventDefault();
 
-    const content = document.querySelector('textarea[name="encouragementComment"]').value.trim();
+    const content = document.querySelector('span[name="myPostPreview"]').value.trim();
     if(content) {
-        const response = await fetch('/api/comments', {
+        const response = await fetch('/api/user', {
             method: 'POST',
             body: JSON.stringify({
                 post_id,
@@ -28,9 +28,9 @@ async function dashPostHandler(event){
 
 
 // Button logic for getting a new random encouragement 
-async function encouragementHandler(event){
+async function viewPostHandler(event){
     event.preventDefault();
-            document.location.reload();
+            document.location.;
 }
 
 
@@ -57,5 +57,5 @@ async function hugHandler(event) {
 }
 
 document.querySelector('.comment-form').addEventListener('submit', dashPostHandler);
-document.querySelector('#nextEncBtn').addEventListener('click', encouragementHandler);
+document.querySelector('#view-button').addEventListener('click', viewPostHandler);
 document.querySelector('#hug-btn').addEventListener('click', hugHandler);

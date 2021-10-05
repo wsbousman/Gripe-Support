@@ -42,9 +42,9 @@
                         <input id="collapsible" type="checkbox" name="collapsible">
                         <label id="myPostHistoryPostLabels" for="collapsible" class="paper border">one</label>
                         <div class="collapsible-body paper border">
-                            <span>{{post.content}}</span>
+                            <span name="myPostPreview">{{post.content}}</span>
                             <div class="">
-                                <a href="{{post.id}}" class="paper-btn btn-small">view post</a>
+                                <a href="{{post.id}}" class="paper-btn btn-small" id="view-button">view post</a>
                                 <button type="delete" class="paper-btn btn-small" id="pink">delete</button>
                             </div>
                         </div>
