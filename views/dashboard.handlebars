@@ -1,15 +1,6 @@
-<!DOCTYPE html>
+<
 <html class="dark" lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css">
-    <link rel="stylesheet" href="./assets/css/stylesheet.css">
-    <title>gripe//support-dashboard</title>
-
-</head>
 
     <!-- hero sitch -->
     <section class="flex-center row">
@@ -19,49 +10,8 @@
                     <div class="aligned-middle" id="logo and posts">
                         <img class="margin-small no-border" src="assets/images/logo/gripe support title@1x.png">
 
-                        <!-- modal to post a gripe on:click of button-->
-                        <div class="gripeModal">
-                            <label class="gripe-btn" for="modal-gripe-post">
-                                <a class="paper-btn post-btn">post a gripe</a>
-                            </label>
-                        </div>
-                        <input class="modal-state" id="modal-gripe-post" type="checkbox">
-                        <div class="modal">
-                            <label class="modal-bg" for="modal-gripe-post"></label>
-                            <div class="modal-body">
-                                <label class="btn-close" for="modal-gripe-post">X</label>
-                                <h4 class="modal-title">gripe//support</h4>
-                                <p class="modal-text">
-                                <div class="form-group">
-                                    <label for="gripeModalInput">what's eating you?</label>
-                                    <textarea class="input-block modalPostTextArea" id="large-input"></textarea>
-                                </div>
-                                <p></p>
-                                <label class="aligned-right paper-btn" for="submitGripePost" id="dashModalPostBtn">post</label>
-                            </div>
-                        </div>
-            
-                        <!-- modal to post encouragement on:click of button-->
-                        <div class="encModal">
-                            <label class="encouragement-btn" for="modal-enc-post">
-                                <a class="post-btn paper-btn">post an encouragement</a>
-                            </label>
-                        </div>
-                        <input class="modal-state" id="modal-enc-post" type="checkbox">
-                        <div class="modal">
-                            <label class="modal-bg" for="modal-enc-post"></label>
-                            <div class="modal-body">
-                                <label class="btn-close" for="modal-enc-post">X</label>
-                                <h4 class="modal-title">gripe//support</h4>
-                                <p class="modal-text">
-                                <div class="form-group">
-                                    <label for="encModalInput">what words would have made you feel better today?</label>
-                                    <textarea class="input-block modalPostTextArea" id="large-input"></textarea>
-                                </div>
-                                <p></p>
-                                <label class="aligned-right paper-btn" for="submitEncPost" id="dashModalPostBtn">post</label>
-                            </div>
-                        </div>
+                         {{!-- modals for adding encouragements and gripes --}}
+                        {{> addEncGripe}}
                     </div>
                 </div>
             </div>
