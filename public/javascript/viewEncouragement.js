@@ -5,7 +5,7 @@ let post_id = document.querySelector('.post-id').id.trim();
 async function commentFormHandler(event){
     event.preventDefault();
 
-    const content = document.querySelector('textarea[name="gripeComment"]').value.trim();
+    const content = document.querySelector('textarea[name="encouragementComment"]').value.trim();
     if(content) {
         const response = await fetch('/api/comments', {
             method: 'POST',
