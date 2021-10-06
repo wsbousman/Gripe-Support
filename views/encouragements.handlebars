@@ -1,7 +1,18 @@
 <html class="dark" lang="en">
 
-<body class="dashboard">
+<body class="dashboard flex-center row">
 
+    <section class="flex-center row" style="margin-bottom:0px;margin-top:70px;">
+        <div class="col flex-center">
+            <div class="aligned-right flex-spaces">
+                <div class="margin-top-large">
+                    <div class="aligned-middle" id="logo and posts">
+                        {{!-- modals for adding encouragements and gripes --}}
+                        {{> addEncGripe}}
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col padding-small flex-center" id="postPage">
             <div class="logo">
                 <div class="padding-top-small">
@@ -22,59 +33,64 @@
             <h2 id="encTitleBanner" class="aligned-middle enc-title paper border margin-none full-rotate">encouragements
             </h2>
         </div>
+    </section>
 
-        <!-- textarea -->
-        <section class="row" id="postContainer">
-            <div class="col full-rotate flex-center">
-                <div class="paper border-3 padding-large margin-top-small">
+    <!-- textarea -->
+    <section class="row" id="postContainer">
+        <div class="col full-rotate flex-center">
+            <div class="paper border-3 padding-large margin-top-small">
+                <div class="margin-small">
+                    <label for="postNumber" class="post-id" id="{{post.id}}">
+                        <div class="encPost card paper border padding-large">
+                            <h4>
+                                {{post.content}}
+                            </h4>
+                        </div>
+                    </label>
                     <div class="margin-small">
-
-                        <label for="postNumber" class="post-id" id="{{post.id}}">{{post.content}}</label>
                         <form class="comment-form">
                             <div>
-                                <container class="myPost card paper border">
-                                    <textarea class="myPost" name="encouragementComment"
-                                        placeholder="Say something encouraging"></textarea>
+                                <container class="no-border">
+                                    <textarea class="myCommentArea myPost margin-small padding-small"
+                                        name="encouragementComment" placeholder="Say something encouraging"></textarea>
                                 </container>
                             </div>
+                            <p></p>
+                            <button type="submit" class="col paper-btn aligned-right"
+                                id="commentEncBtn">comment</button>
+                        </form>
                     </div>
-                    <p></p>
-                    <button type="submit" class="paper-btn btn-small right" id="commentEncBtn">comment</button>
-                    </form>
-
-                </div>
-                <!-- comments -->
-                <div class="row flex-right marg">
-                    <div class="col flex-spaces">
-                        <div class="margin-none" id="commentBox">
-                            <p class="card-title paper border-6 margin-none padding" id="commentEncHeader">comments:</p>
-
-                            {{#each post.comments as |comment|}}
-                            <div class="container paper border-6 padding">{{comment.content}}</div>
-                            {{/each}}
-
-                        </div>
-                    </div>
-                    <button id="hug-btn">
-                        <div class="flex-spaces paper-btn border-4 padding-small margin-top-none hug-counter"
-                            id="hug-counterEnc">
-
-                            <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png"
-                                alt="hug-icon">
-                            <!-- number of hugs -->
-                            <p class="flex-center padding-right-small">{{post.hug_count}}</p>
-                        </div>
-                    </button>
                 </div>
             </div>
+            <!-- comments -->
+            <div class="row flex-right marg">
+                <div class="col flex-spaces">
+                    <div class="margin-none" id="commentBox">
+                        <p class="card-title paper border-6 margin-none padding" id="commentEncHeader">comments:</p>
 
-        </section>
+                        {{#each post.comments as |comment|}}
+                        <div class="container paper border-6 padding">{{comment.content}}</div>
+                        {{/each}}
 
-        <section id="nextPreviousBtns">
-            <div class="margin-bottom-large">
-                <btn id="nextEncBtn" class="next paper-btn btn-large">></btn>
+                    </div>
+                </div>
+                <button id="hug-btn">
+                    <div class="flex-spaces padding-small margin-top-none hug-counter" id="hug-counterEnc">
+                        <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png" alt="hug-icon">
+                        <!-- number of hugs -->
+                        <p class="flex-center padding-right-small">{{post.hug_count}}</p>
+                    </div>
+                </button>
             </div>
-        </section>
+        </div>
+
+    </section>
+
+    <section id="nextPreviousBtns">
+        <div class="margin-bottom-large">
+            <btn id="nextEncBtn" class="next paper-btn btn-large">></btn>
+        </div>
+    </section>
 
     </section>
     <script src="/javascript/viewEncouragement.js"></script>

@@ -223,7 +223,6 @@ textarea {
     display: flex;
     justify-content: center;
     color: #474644;
-    box-shadow: #f6d0d1 15px 28px 25px -18px;
 }
 
 #commentEncHeader {

@@ -25,7 +25,7 @@ const getPostCount = async function () {
             }
         })
     }
-
+    plugins: [ChartRough]
 
 };
 

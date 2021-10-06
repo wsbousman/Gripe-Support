@@ -1,7 +1,21 @@
 <html class="dark" lang="en">
 
 <body class="dashboard">
-   
+
+    <!-- navigation bar -->
+    <section class="flex-center row" id="gripeHeading">
+        <div class="col flex-center">
+            <div class="aligned-right flex-spaces">
+                <div class="margin-top-large">
+                    <div class="aligned-middle" id="logo and posts">
+
+                        {{!-- modals for adding encouragements and gripes --}}
+                        {{> addEncGripe}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
     <section>
         <div class="col padding-small flex-center" id="postPage">
             <div class="aligned-middle margin-top-large">
@@ -40,26 +54,33 @@
             </div>
             <!-- hug counter -->
             <div class="row flex-right marg">
-                <div class="col flex">
+                <div class="col flex-spaces">
                     <div class="margin-none" id="commentBox">
-                        <p class="card-title paper border-6 margin-none padding" id="commentHeader">comments:</p>
+                        <p class="card-title paper border-6 margin-none padding" id="commentGripeHeader">
+                            comments:
+                        </p>
+
                         {{#each post.comments as |comment|}}
+
                         <div class="container paper border-6 padding">{{comment.content}}</div>
+
                         {{/each}}
-                        {{#unless post.comments.length}}
-                        <div class="container paper border-6 padding">No one has commented yet.</div>
-                        {{/unless}}
                     </div>
                 </div>
-                <div class="flex-spaces paper-btn border-4 padding-small margin-top-none hug-counter" id="hug-counterMine">
-                    <img id="hugIcon" class="no-border" src="/assets/images/hugs/meowmeowhugz.png" alt="hug-icon">
-                    <!-- number of hugs -->
-                    <p class="flex-center padding-right-small">{{post.hug_count}}</p>
-                </div>
+
+                {{!-- hug counter --}}
+                <button id="hug-btn">
+                    <div class="flex-spaces padding-small margin-top-none gripeHug"
+                        id="hug-counterGripe">
+
+                        <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png" alt="hug-icon">
+                        <!-- number of hugs -->
+                        <p class="flex-center padding-right-small">{{post.hug_count}}</p>
+                    </div>
+                </button>
             </div>
         </div>
-        </div>
-    </section>
+        <script src="/javascript/deletePost.js"></script>
 
-    
-<script src="/javascript/deletePost.js"></script>
+  
+    </section>
