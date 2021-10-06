@@ -28,7 +28,7 @@
         </div>
     </section>
 
-    <section>
+ <section>
         <div class="col-12 full-rotate">
             <h3 class="aligned-middle paper border">{{posts.0.user.username}}'s post history</h3>
             <!-- will make this dynamic in separate js file but will live here atm until I can map out all of the things -->
@@ -44,20 +44,25 @@
                         <div class="collapsible-body paper border">
                             <h3 class="">{{post.content}}</h3>
                             <div class="">
-                                <a href="view-my-post/{{post.id}}" class="paper-btn btn-small">view post</a>
-                                <button type="delete" class="paper-btn btn-small" id="pink">delete</button>
+                                {{!-- <a href="#post-id" class="paper-btn btn-small">view post</a>
+                                <button type="delete" class="paper-btn btn-small" id="pink">delete</button> --}}
+                                {{#if post.comments.length}}
                                 <div class="paper">Comments:
                                     {{#each post.comments as |comment| }}
                                     <div class="paper border">{{comment.content}}</div>
                                     {{/each}}
-                                </div>    
+                                </div>  
+                                {{/if}}
                             </div>
                         </div>
                         {{/each}}
                     </div>
                 </div>
             </div> 
-        </div>                          
+        </div>       
+                    
+                   
     </section>
 
-    <script src="/javascript/viewDashboard.js"></script>
+
+</html>

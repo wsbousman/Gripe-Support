@@ -1,9 +1,13 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
+<<<<<<< HEAD
 const { User, Post, Hug, Category, Comment} = require('../models');
+=======
+const { User, Post, Hug, Category, Comment } = require('../models');
+>>>>>>> 45f500c6f46fcd77bcfb70899495f74ebf0e2f18
 const loggedIn = require('../utils/loggedIn');
 
-router.get('/', loggedIn, (req,res) => {
+router.get('/', loggedIn, (req, res) => {
     Post.findAll({
         where: {
             user_id: req.session.user_id
@@ -17,27 +21,44 @@ router.get('/', loggedIn, (req,res) => {
         ],
         include: [
             {
+<<<<<<< HEAD
             model: User,
             attributes:['username']
             },
             {
                 model: Category,
                 attributes: ['name']    
+=======
+                model: User,
+                attributes: ['username']
+            },
+            {
+                model: Category,
+                attributes: ['name']
+>>>>>>> 45f500c6f46fcd77bcfb70899495f74ebf0e2f18
             },
             {
                 model: Comment,
                 attributes: ['content']
             }
+<<<<<<< HEAD
         ]    
     })
     .then(dbPostData => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('dashboard', { posts, loggedIn: true });
+=======
+        ]
+>>>>>>> 45f500c6f46fcd77bcfb70899495f74ebf0e2f18
     })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbPostData => {
+            const posts = dbPostData.map(post => post.get({ plain: true }));
+            res.render('dashboard', { posts, loggedIn: true });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // router.get('/edit/:id', (req,res) => {
