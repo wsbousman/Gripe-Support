@@ -48,7 +48,33 @@
                 <p>
                     Already have an account? <a class="existingUser">Log
                         in.</a>
-                </p>
+                </p> --}}
+
+                   <p> Already have an account? 
+                        <label class="paper-btn btn-small logInBtn" for="modal-1">Log in</label>
+                    </p>
+                <input class="modal-state" id="modal-1" type="checkbox">
+                <div class="modal">
+                    <form class="login-form" id="login-form">
+                        <label class="modal-bg" for="modal-1"></label>
+                        <div class="modal-body">
+                        <label class="btn-close" for="modal-1">X</label>
+                        <h4 class="modal-title">gripe//support</h4>
+                        <h5 class="modal-subtitle">you need an account to make posts</h5>
+                        <p class="modal-text">
+                        <div class="form-group">
+                            <label for="paperInputs1">Username</label>
+                            <input id="username-login" class="input-block" type="text" placeholder="xxxxxxx@xxx.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="paperInputs1">Password</label>
+                            <input id="password-login" class="input-block" type="password" placeholder="we hope you're using a password manager">
+                            <p></p>
+                            <button class="aligned-right paper-btn" type="submit">Log In</button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
     </section>
 <script src="/javascript/signUp,js"></script>

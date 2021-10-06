@@ -1,7 +1,8 @@
 <html class="dark">
 
-<body class="dashboard">
-    <section class="flex-center row">
+
+    <!-- hero sitch -->
+    <section class="flex-center row margin-top-large">
         <div class="col flex-center">
             <div class="aligned-right flex-spaces">
                 <div class="margin-top-large">
@@ -33,7 +34,7 @@
             <!-- will make this dynamic in separate js file but will live here atm until I can map out all of the things -->
             <div class="container paper border" id="postList">
                 
-                {{#each post.content as |post|}}
+                {{#each posts.content as |post|}}
 
                 <div class="margin-large">
                     {{#each posts as |post|}}
