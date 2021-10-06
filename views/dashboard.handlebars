@@ -22,6 +22,8 @@
         </div>
     </div>
 </section>
+
+{{#if posts.length}}
 <section>
     <div class="col-12 full-rotate">
         <h3 class="aligned-middle paper border">{{posts.0.user.username}}'s post history</h3>
@@ -59,5 +61,5 @@
         </div>
     </div>
 </section>
-
+{{/if}}
 </html>
