@@ -41,7 +41,7 @@
                         <div class="collapsible-body paper border">
                             <h3 class="">{{post.content}}</h3>
                             <div class="">
-                                {{!-- <a href="#post-id" class="paper-btn btn-small">view post</a> --}}
+                                <a href="/dashboard/view/{{post.id}}" class="paper-btn btn-small">view post</a>
                                 <button type="submit" class="paper-btn btn-small delete-post-btn pink" id="{{post.id}}" onClick="reply_click(this.id)" >delete</button>
                                 {{#if post.comments.length}}
                                 <div class="paper">Comments:

@@ -40,6 +40,46 @@ router.get('/', loggedIn, (req, res) => {
         });
 });
 
+router.get('/view/:id', loggedIn, (req, res) => {
+    Post.findOne({
+        where: {
+            user_id: req.session.user_id,
+            id: req.params.id
+        },
+        attributes: [
+            'id',
+            'content',
+            'flagged',
+            'user_id',
+            'created_at',
+            [sequelize.literal('(SELECT COUNT(*) FROM hug WHERE post.id = hug.post_id)'), 'hug_count']
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            },
+            {
+                model: Category,
+                attributes: ['name']
+            },
+            {
+                model: Comment,
+                attributes: ['content']
+            }
+        ]
+    })
+        .then(dbPostData => {
+            const post = dbPostData.get({ plain: true });
+            res.render('view-my-post', { post, loggedIn: true });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+    
+});
+
 // router.get('/edit/:id', (req,res) => {
 //     Post.findOne({
 //         where: {

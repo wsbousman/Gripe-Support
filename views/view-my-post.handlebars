@@ -1,0 +1,65 @@
+<html class="dark" lang="en">
+
+<body class="dashboard">
+   
+    <section>
+        <div class="col padding-small flex-center" id="postPage">
+            <div class="aligned-middle margin-top-large">
+                <div class="margin-top-large padding-top-large">
+                    <div id="logo and posts">
+                        <img class="row aligned-middle no-border" src="/assets/images/logo/gripe support title@1x.png">
+                    </div>
+                </div>
+            </div>
+            <div class="flex-center">
+                <div class="padding-small no-border">
+                    <div class="margin-small" id="heart and title">
+                        <img class="row aligned-middle no-border" src="/assets/images/hearts/edit-posts-heart.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- textarea -->
+    <section class="row" id="postContainer">
+        <div class="col full-rotate flex-center">
+            <div class="paper border-2 padding-large">
+                <div class="">
+                    <div class="text-box">
+                        <label for="postNumber">The {{post.category.name}} you made on {{post.created_at}}</label>
+                        <div>
+                            <container class="myPost card paper border">
+                                <div class="card-text">{{post.content}}</div>
+                            </container>
+                        </div>
+                    </div>
+                    <p></p>
+                    <label type="submit" class="paper-btn border btn-small right deletePostBtn" id="{{post.id}}" onClick="reply_click(this.id)">delete</label>
+                </div>
+            </div>
+            <!-- hug counter -->
+            <div class="row flex-right marg">
+                <div class="col flex">
+                    <div class="margin-none" id="commentBox">
+                        <p class="card-title paper border-6 margin-none padding" id="commentHeader">comments:</p>
+                        {{#each post.comments as |comment|}}
+                        <div class="container paper border-6 padding">{{comment.content}}</div>
+                        {{/each}}
+                        {{#unless post.comments.length}}
+                        <div class="container paper border-6 padding">No one has commented yet.</div>
+                        {{/unless}}
+                    </div>
+                </div>
+                <div class="flex-spaces paper-btn border-4 padding-small margin-top-none hug-counter" id="hug-counterMine">
+                    <img id="hugIcon" class="no-border" src="/assets/images/hugs/meowmeowhugz.png" alt="hug-icon">
+                    <!-- number of hugs -->
+                    <p class="flex-center padding-right-small">{{post.hug_count}}</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    
+<script src="/javascript/deletePost.js"></script>
