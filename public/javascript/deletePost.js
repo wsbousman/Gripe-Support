@@ -13,7 +13,4 @@ async function reply_click(id){
         alert(response.statusText);
         }
     }
-
-    
-    
 }
