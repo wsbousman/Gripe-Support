@@ -1,6 +1,6 @@
 <html class="dark" lang="en">
 
-<body class="dashboard flex-center row" id="gripeHeading">
+<body class="dashboard flex-center row">
 
     <section class="flex-center row" style="margin-bottom:0px;margin-top:65px;">
         <div class="col flex-center">
@@ -40,20 +40,28 @@
         <div class="col full-rotate flex-center">
             <div class="paper border-3 padding-large margin-top-small">
                 <div class="margin-small">
-
-                    <label for="postNumber" class="post-id" id="{{post.id}}">{{post.content}}</label>
-                    <form class="comment-form">
-                        <div>
-                            <container class="myPost card paper border">
-                                <textarea class="myPost" name="gripeComment"
-                                    placeholder="Say something encouraging"></textarea>
-                            </container>
+                <div class="margin-small">
+                    <label for="postNumber" class="post-id" id="{{post.id}}">
+                        <div class="gripePost card paper border padding-large">
+                            <h4>
+                                {{post.content}}
+                            </h4>
                         </div>
+                    </label>
+                    <div class="margin-small">
+                        <form class="comment-form">
+                            <div>
+                                <container class="no-border">
+                                    <textarea class="myCommentArea myPost margin-small padding-small" name="encouragementComment"
+                                        placeholder="Say something encouraging"></textarea>
+                                </container>
+                            </div>
+                    </div>
+                    <p></p>
+                    <button type="submit" class="col paper-btn aligned-right" id="commentGripeBtn">comment</button>
+                    </form>
                 </div>
-                <p></p>
-                <button type="submit" class="paper-btn btn-small right" id="commentEncBtn">comment</button>
-                </form>
-
+            </div>
             </div>
             {{!-- comments list --}}
             <div class="row flex-right marg">
@@ -71,7 +79,7 @@
                     </div>
                 </div>
                 <button id="hug-btn">
-                    <div class="flex-spaces paper-btn border-4 padding-small margin-top-none gripeHug"
+                    <div class="flex-spaces padding-small margin-top-none gripeHug"
                         id="hug-counterGripe">
 
                         <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png" alt="hug-icon">

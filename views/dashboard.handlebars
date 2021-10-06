@@ -1,55 +1,63 @@
 <html class="dark">
 
-    <!-- hero sitch -->
-    <section class="flex-center row margin-top-large">
-        <div class="col flex-center">
-            <div class="aligned-right flex-spaces">
-                <div class="margin-top-large">
-                    <div class="aligned-middle" id="logo and posts">
-                        <img class="margin-small no-border" src="assets/images/logo/gripe support title@1x.png">
-                         {{!-- modals for adding encouragements and gripes --}}
-                        {{> addEncGripe}}
-                    </div>
+<!-- hero sitch -->
+<section class="flex-center row margin-top-large">
+    <div class="col flex-center">
+        <div class="aligned-right flex-spaces">
+            <div class="margin-top-large">
+                <div class="aligned-middle" id="logo and posts">
+                    <img class="margin-small no-border" src="assets/images/logo/gripe support title@1x.png">
+                    {{!-- modals for adding encouragements and gripes --}}
+                    {{> addEncGripe}}
                 </div>
             </div>
         </div>
-        <div class="col flex-center">
-            <div class="margin-top-large  no-border">
-                <div class="margin-small" id="heart-pink">
-                    <img class="no-border aligned-middle" src=" assets/images/hearts/edit-posts-heart.png">
+    </div>
+    <div class="col flex-center">
+        <div class="margin-top-large  no-border">
+            <div class="margin-small" id="heart-pink">
+                <img class="no-border aligned-middle" src=" assets/images/hearts/edit-posts-heart.png">
 
             </div>
         </div>
-        </div>
-    </section>
-    <section>
-        <div class="col-12 full-rotate">
-            <h3 class="aligned-middle paper border">{{posts.0.user.username}}'s post history</h3>
-            <!-- will make this dynamic in separate js file but will live here atm until I can map out all of the things -->
-            <div class="container paper border" id="postList">
-                <div class="margin-large">
-                    {{#each posts as |post|}}
-                    <div class="collapsible margin-small">
-                        <input id="collapsible{{post.id}}" type="checkbox" name="collapsible">  
-                        <label id="myPostHistoryPostLabels" for="collapsible{{post.id}}" class="paper border">You made a {{category.name}} on {{post.created_at}}</label>
-                        <div class="collapsible-body paper border">
-                            <h3 class="">{{post.content}}</h3>
-                            <div class="">
-                                {{!-- <a href="#post-id" class="paper-btn btn-small">view post</a>
-                                <button type="delete" class="paper-btn btn-small" id="pink">delete</button> --}}
-                                {{#if post.comments.length}}
-                                <div class="paper">Comments:
-                                    {{#each post.comments as |comment| }}
-                                    <div class="paper border">{{comment.content}}</div>
-                                    {{/each}}
-                                </div>  
+    </div>
+</section>
+<section>
+    <div class="col-12 full-rotate">
+        <h3 class="aligned-middle paper border">{{posts.0.user.username}}'s post history</h3>
+        <!-- will make this dynamic in separate js file but will live here atm until I can map out all of the things -->
+        <div class="container paper border" id="postList">
+            <div class="margin-large">
+                {{#each posts as |post|}}
+                <div class="collapsible margin-small">
+                    <input id="collapsible{{post.id}}" type="checkbox" name="collapsible">
+                    <label id="myPostHistoryPostLabels" for="collapsible{{post.id}}" class="paper border">
+                        <h6 class="margin-none">
+                            You made a(n) </h6><h4 class="margin-none">{{category.name}}</h4><h6 class="margin-top-small"> on {{post.created_at}}
+                        </h6>
+                    </label>
+                    <div class="collapsible-body">
+                        <span>
+                            <h4 class="myPost padding paper border">{{post.content}}</h4>
+                                                
+                        <div class="pink">
+                            {{!-- <a href="#post-id" class="paper-btn btn-small">view post</a>
+                            <button type="delete" class="paper-btn btn-small" id="pink">delete</button> --}}
+                            {{#if post.comments.length}}
+                            <div>Comments:
+                                {{#each post.comments as |comment| }}
+                                <h5 class="paper border">{{comment.content}}</h5>
+                                {{/each}}
                             </div>
-                            {{/if}}
                         </div>
+                        {{/if}}
+                        </span>
                     </div>
-                    {{/each}}
                 </div>
-            </div> 
-        </div>                
-    </section>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</section>
+
 </html>
