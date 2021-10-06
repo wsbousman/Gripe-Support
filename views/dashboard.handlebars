@@ -42,8 +42,8 @@
                         <div class="collapsible-body paper border">
                             <h3 class="">{{post.content}}</h3>
                             <div class="">
-                                <a href="#post-id" class="paper-btn btn-small">view post</a>
-                                <button type="delete" class="paper-btn btn-small" id="pink">delete</button>
+                                {{!-- <a href="#post-id" class="paper-btn btn-small">view post</a>
+                                <button type="delete" class="paper-btn btn-small" id="pink">delete</button> --}}
                                 <div class="paper">Comments:
                                     {{#each post.comments as |comment| }}
                                     <div class="paper border">{{comment.content}}</div>
