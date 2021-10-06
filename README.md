@@ -12,7 +12,7 @@ media has been unable to: understanding, encouragement, and inspiration.
 # Instructions
 Gripe Support is hosted on Heroku, so like many web applications, it requires only a valid username and 
 username to sign up and start posting gripes and comments. Support has never been so accessible! 
-![screenshot](https://i.imgur.com/EpcziSb.png)
+![screenshot](https://i.imgur.com/GFJxfop.png)
 ***
 # Credits
 Gripe Support's contributors include:
