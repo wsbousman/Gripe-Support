@@ -44,11 +44,13 @@
                             <div class="">
                                 {{!-- <a href="#post-id" class="paper-btn btn-small">view post</a>
                                 <button type="delete" class="paper-btn btn-small" id="pink">delete</button> --}}
+                                {{#if post.comments.length}}
                                 <div class="paper">Comments:
                                     {{#each post.comments as |comment| }}
                                     <div class="paper border">{{comment.content}}</div>
                                     {{/each}}
-                                </div>    
+                                </div>  
+                                {{/if}}
                             </div>
                         </div>
                         {{/each}}
