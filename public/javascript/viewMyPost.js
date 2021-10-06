@@ -1,39 +1,56 @@
-// This will get linked in gripes.handlebars
+// // This will get linked in gripes.handlebars
 
-// Side arrow button which will get another random gripe
+// // Side arrow button which will get another random gripe
 
-let post_id = document.querySelector('.post-id').id.trim();
+// let post_id = document.querySelector('.post-id').id.trim();
 
-// Button logic for getting a random gripe post 
-async function myPostViewHandler(event){
-    console.log('hello');
-    event.preventDefault();
-            document.location.reload();
-}
+// // Button logic for getting a random gripe post 
+// async function myPostViewHandler(event){
+//     console.log('hello');
+//     event.preventDefault();
 
-
-// Button logic to add hugs to the post 
-async function hugHandler(event) {
-    event.preventDefault();
-
-    const response = await fetch('/api/posts/giveHug', {
-        method: 'PUT',
-        body: JSON.stringify({
-            post_id,
-            category_id: 2
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+//     const response = await fetch('/api/posts/', {
+//         method: 'PUT',
+//         body: JSON.stringify({
+//             post_id,
+//             // category_id: 2
+//         }),
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     });
     
-    if(response.ok) {
-        document.location.reload();
-    } else {
-        alert(response.statusText);
-    }
-}
+//     if(response.ok) {
+//         document.location.reload();
+//     } else {
+//         alert(response.statusText);
+//     }
+//             document.location.reload();
+// }
 
-document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
-document.querySelector('#nextGripeBtn').addEventListener('click', myPostViewHandler);
-document.querySelector('#hug-btn').addEventListener('click', hugHandler);
+
+// // Button logic to add hugs to the post 
+// async function hugHandler(event) {
+//     event.preventDefault();
+
+//     const response = await fetch('/api/posts/giveHug', {
+//         method: 'PUT',
+//         body: JSON.stringify({
+//             post_id,
+//             category_id: 2
+//         }),
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     });
+    
+//     if(response.ok) {
+//         document.location.reload();
+//     } else {
+//         alert(response.statusText);
+//     }
+// }
+
+// // document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+// document.querySelector('#nextGripeBtn').addEventListener('click', myPostViewHandler);
+// document.querySelector('#hug-btn').addEventListener('click', hugHandler);
