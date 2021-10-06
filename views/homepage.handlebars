@@ -1,0 +1,73 @@
+<!-- logo -->
+<section class="flex-center row" style="margin-bottom:0px;">
+    <div class="col aligned-middle" style="padding-bottom:0px;">
+      <img class="row margin-top-large padding-top-large no-border" src="./assets/images/logo/homepage-title.png"
+        alt="title logo">
+        <div class="flex-center row" style="margin-bottom:0px;">
+          <img class="row flex-center margin-small no-border" src="./assets/images/hearts/dashboard-heart.png"
+          alt="purple heart">
+        </div>
+    </div>
+</section>
+
+{{!-- <div class="collapsible">
+  <input id="collapsible1" type="checkbox" name="collapsible1">
+  <label class="paper-btn" for="collapsible1">
+    <h5 class="padding-none margin-small flex-edges">menu</h5>
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </label>
+  <div class="collapsible-body">
+    <ul class="inline">
+      <li><a href="/gripes">gripes</a></li>
+      <li><a href="/encouragements">encouragements</a></li>
+      <li>
+        <a href="/"><img class="aligned-middle" src="./assets/images/hearts/little-purple.png" class="no-border"></a>
+      </li>
+    </ul>
+  </div>
+</div> --}}
+
+<!-- mood to date -->
+<section class="row flex-spaces homepage">
+  <div class="col sm-4">
+    <div class="row flex-spaces child-borders child-shadows">
+      <div class="paper">
+        {{!-- <img class="row flex-center margin-small no-border" src="./assets/images/hearts/dashboard-heart.png"
+          alt="purple heart"> --}}
+        <!-- <div class="card-body"> -->
+        <h3 class="card-title">the mood to date:</h3>
+        <canvas id="myChart"></canvas>
+        <p class="card-text">
+          mostly warm with a chance of whinging</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!--about section -->
+  <div class="col col-8">
+    <div class="container paper border flex-center">
+      <div class="flex-spaces">
+        <h3 class="">who are we?</h3>
+        <h5 class="">Good question.</h5>
+        <p class="">We are the fussy, the frustrated, the bothered, the annoyed. We wish to air our
+          grievances without judgment
+          and only receive simple validation in return. We appreciate positivity and encouragements, but most of all,
+          we
+          simply seek acceptance for our woes.</p>
+        <div>
+          <h5>Need to vent?</h5>
+          <p>
+            <a href="/signup">Sign up</a> and let it alllllll out. It's okay. We're all here for you.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+<script src="/javascript/homePieChart.js"></script>

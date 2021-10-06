@@ -43,6 +43,24 @@ router.get('/' , (req, res) => {
         });
 });
 
+// Get Encouragement Posts + Total Posts 
+router.get('/count', async (req, res) => {
+
+    const totalPosts = await Post.count();
+    console.log(totalPosts);
+    const encouragementPosts = await Post.count({
+        where: {
+            category_id: 1
+        }
+    });
+    console.log(encouragementPosts);
+    const positivePercent = encouragementPosts/totalPosts*100;
+    console.log(positivePercent);
+
+    res.status(200).json({encouragementPosts, totalPosts});
+    
+});
+
 // Grab one post
 
 router.get('/:id', (req, res) => {
@@ -95,7 +113,7 @@ router.get('/:id', (req, res) => {
 router.post('/', loggedIn, (req, res) => {
     Post.create({
         content: req.body.content,
-        user_id: req.body.user_id,
+        user_id: req.session.user_id,
         category_id: req.body.category_id
     })
         .then(dbPostData => res.status(200).json(dbPostData))
@@ -110,7 +128,7 @@ router.post('/', loggedIn, (req, res) => {
 router.put('/giveHug', loggedIn, (req, res) => {
     // First, create a new Hug in the hug model, then find the post that was given the hug, and return it with the new hug count. 
     Hug.create({
-        user_id: req.body.user_id,
+        user_id: req.session.user_id,
         post_id: req.body.post_id,
         category_id: req.body.category_id
     })

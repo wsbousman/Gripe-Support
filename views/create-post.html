@@ -1,0 +1,79 @@
+
+<html class="dark" lang="en">
+
+<body class="dashboard">
+    <!-- navigation bar -->
+    <section class="header margin-bottom-large">
+        <nav class="border fixed split-nav">
+            <div class="nav-brand">
+
+                <!-- log-out sitch -->
+                <label class="paper-btn btn-small" for="modal-1">
+                    <h4>
+                        <a>log out</a>
+                    </h4>
+                </label>
+            </div>
+
+            <!-- collapsible menu with links to other pages -->
+            <div class="collapsible">
+                <input id="collapsible1" type="checkbox" name="collapsible1">
+                <label class="paper-btn" for="collapsible1">
+                    <h5 class="padding-none margin-small flex-edges">menu</h5>
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                    <div class="bar4"></div>
+                </label>
+                <div class="collapsible-body">
+                    <ul class="inline">
+                        <li><a href="./dashboard.html">my dashboard</a></li>
+                        <li><a href="./gripes.html">gripes</a></li>
+                        <li><a href="./encouragements.html">encouragements</a></li>
+                        <li><a href="./index.html">
+                                <img src="./assets/images/hearts/little-yellow.png" class="aligned-middle no-border">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <section>
+        <div class="col padding-small flex-center" id="postPage">
+            <div class="aligned-middle margin-top-large">
+                <div class="margin-top-large padding-top-large">
+                    <div id="logo and posts">
+                        <img class="row aligned-middle no-border" src="assets/images/logo/gripe support title@1x.png">
+                    </div>
+                </div>
+            </div>
+            <div class="flex-center">
+                <div class="padding-small no-border">
+                    <div class="margin-small" id="heart and title">
+                        <img class="row aligned-middle no-border" src=" assets/images/hearts/view-my-posts-heart.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- textarea -->
+    <section class="row">
+        <div class="col full-rotate flex-center">
+            <div class="">
+                <div class="form-group paper border padding-large">
+                    <div class="form-body">
+                        <div class="text-box">
+                            <label for="large-input">write it out.</label>
+                            <textarea class="input-block" type="text" id="large-input"></textarea>
+                        </div>
+                        <p></p>
+                        <label type="submit" class="paper-btn border btn-small right" id="submitPostBtn">submit</label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>

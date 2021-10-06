@@ -83,7 +83,7 @@ User.hasMany(Hug, {
 
 // Many Users can Hug many Posts -> relationship set through the Hug model, as User (parent) does not reference its child (Post). Hug references both User & Post
 
-// The foreign key here is the key that is associated with model A in the thorugh model. 
+// The foreign key here is the key that is associated with model A in the through model. 
 
 Post.belongsToMany(User, {
     through: Hug,

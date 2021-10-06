@@ -1,0 +1,53 @@
+{{#if loggedIn}}
+    <!-- modal to post a gripe on:click of button-->
+    <div class="gripeModal">
+        <label class="gripe-btn" for="modal-gripe-post">
+            <a class="paper-btn post-btn">post a gripe</a>
+        </label>
+    </div>
+    <input class="modal-state" id="modal-gripe-post" type="checkbox">
+    <div class="modal">
+        <label class="modal-bg" for="modal-gripe-post"></label>
+        <div class="modal-body">
+            <form class="gripeForm">
+                <label class="btn-close" for="modal-gripe-post">X</label>
+                <h4 class="modal-title">gripe//support</h4>
+                <p class="modal-text">
+                <div class="form-group">
+                    <label for="gripeModalInput">what's eating you?</label>
+                    <textarea class="input-block modalPostTextArea" id="gripeModalInput"></textarea>
+                </div>
+                <p></p>
+                <button type="submit" class="aligned-right paper-btn" for="submitGripePost" id="dashModalPostBtn">post</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- modal to post encouragement on:click of button-->
+    <div class="encModal">
+        <label class="encouragement-btn" for="modal-enc-post">
+            <a class="post-btn paper-btn">post an encouragement</a>
+        </label>
+    </div>
+    <input class="modal-state" id="modal-enc-post" type="checkbox">
+    <div class="modal">
+        <label class="modal-bg" for="modal-enc-post"></label>
+        <div class="modal-body">
+        
+        <form class="encForm">    
+            <label class="btn-close" for="modal-enc-post">X</label>
+            <h4 class="modal-title">gripe//support</h4>
+            <p class="modal-text">
+            <div class="form-group">
+                <label for="encModalInput">what words would have made you feel better today?</label>
+                <textarea class="input-block modalPostTextArea" id="encModalInput"></textarea>
+            </div>
+            <p></p>
+            <button type="submit" class="aligned-right paper-btn" for="submitEncPost" id="dashModalPostBtn">post</button>
+        </form>
+        
+        </div>
+    </div>
+
+    <script src="/javascript/addEncGripe.js"></script>
+{{/if}}
