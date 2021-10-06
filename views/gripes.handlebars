@@ -35,33 +35,35 @@
         </div>
     </section>
 
-    <!-- textarea --> 
+    <!-- textarea -->
     <section class="row" id="postContainer">
         <div class="col full-rotate flex-center">
             <div class="paper border-3 padding-large margin-top-small">
                 <div class="margin-small">
-                <div class="margin-small">
-                    <label for="postNumber" class="post-id" id="{{post.id}}">
-                        <div class="gripePost card paper border padding-large">
-                            <h4>
-                                {{post.content}}
-                            </h4>
-                        </div>
-                    </label>
                     <div class="margin-small">
-                        <form class="comment-form">
-                            <div>
-                                <container class="no-border">
-                                    <textarea class="myCommentArea myPost margin-small padding-small" name="encouragementComment"
-                                        placeholder="Say something encouraging"></textarea>
-                                </container>
+                        <label for="postNumber" class="post-id" id="{{post.id}}">
+                            <div class="gripePost card paper border padding-large">
+                                <h4>
+                                    {{post.content}}
+                                </h4>
                             </div>
+                        </label>
+                        <div class="margin-small">
+                            <form class="comment-form">
+                                <div>
+                                    <container class="no-border">
+                                        <textarea class="myCommentArea myPost margin-small padding-small"
+                                            name="gripeComment"
+                                            placeholder="Say something encouraging"></textarea>
+                                    </container>
+                                </div>
+                                <p></p>
+                                <button type="submit" class="col paper-btn aligned-right"
+                                    id="commentGripeBtn">comment</button>
+                            </form>
+                        </div>
                     </div>
-                    <p></p>
-                    <button type="submit" class="col paper-btn aligned-right" id="commentGripeBtn">comment</button>
-                    </form>
                 </div>
-            </div>
             </div>
             {{!-- comments list --}}
             <div class="row flex-right marg">
@@ -79,8 +81,7 @@
                     </div>
                 </div>
                 <button id="hug-btn">
-                    <div class="flex-spaces padding-small margin-top-none gripeHug"
-                        id="hug-counterGripe">
+                    <div class="flex-spaces padding-small margin-top-none gripeHug" id="hug-counterGripe">
 
                         <img id="hugIcon" class="no-border" src="./assets/images/hugs/meowmeowhugz.png" alt="hug-icon">
                         <!-- number of hugs -->
