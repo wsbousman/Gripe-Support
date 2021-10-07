@@ -240,6 +240,9 @@ textarea {
     break-inside: avoid;
 }
 
+#commentMyPostHeader {
+    color: #f6d0d8;
+}
 
 #nextPreviousBtns {
     position: fixed;
@@ -249,6 +252,14 @@ textarea {
 
 #nextEncBtn:hover {
     background-color:#d0f6e8;
+}
+
+#hug-counterMyPost {
+    display: inline-flex;
+    margin: none;
+    justify-self: right;
+    align-content: center;
+    break-inside: avoid;
 }
 
 #hug-counterGripe {

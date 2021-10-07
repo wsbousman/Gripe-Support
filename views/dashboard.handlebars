@@ -20,42 +20,49 @@
 
             </div>
         </div>
-        </div>
-    </section>
-    {{#if posts.length}}
-    <section>
-        <div class="col-12 full-rotate">
-            <h3 class="aligned-middle paper border">{{posts.0.user.username}}'s post history</h3>
-            <!-- will make this dynamic in separate js file but will live here atm until I can map out all of the things -->
-            <div class="container paper border" id="postList">
-                <div class="margin-large">
-                    {{#each posts as |post|}}
-                    <div class="collapsible margin-small">
-                        <input id="collapsible{{post.id}}" type="checkbox" name="collapsible">  
-                        <label id="myPostHistoryPostLabels" for="collapsible{{post.id}}" class="paper border">You made a {{category.name}} on {{post.created_at}}</label>
-                        <div class="collapsible-body paper border">
-                            <h3 class="">{{post.content}}</h3>
+    </div>
+</section>
+
+{{#if posts.length}}
+<section>
+    <div class="col-12 full-rotate">
+        <h3 class="aligned-middle paper border">{{posts.0.user.username}}'s post history</h3>
+        <!-- will make this dynamic in separate js file but will live here atm until I can map out all of the things -->
+        <div class="container paper border" id="postList">
+            <div class="margin-large">
+                {{#each posts as |post|}}
+                <div class="collapsible margin-small">
+                    <input id="collapsible{{post.id}}" type="checkbox" name="collapsible">
+                    <label id="myPostHistoryPostLabels" for="collapsible{{post.id}}" class="paper border">
+                        <h6 class="margin-none">
+                            You made a(n) </h6>
+                        <h4 class="margin-none">{{category.name}}</h4>
+                        <h6 class="margin-top-small"> on {{post.created_at}}
+                        </h6>
+                    </label>
+                    <div class="collapsible-body">
+                        <span>
+                            <h4 class="myPost padding paper border">{{post.content}}</h4>
+
                             <div class="">
-                                {{!-- <a href="#post-id" class="paper-btn btn-small">view post</a>
-                                <button type="delete" class="paper-btn btn-small" id="pink">delete</button> --}}
+                                <a href="/dashboard/view/{{post.id}}" class="paper-btn btn-small">view post</a>
+                                <button type="submit" class="paper-btn btn-small delete-post-btn pink" id="{{post.id}}"
+                                    onClick="reply_click(this.id)">delete</button>
                                 {{#if post.comments.length}}
-                                <div class="paper">Comments:
+                                <div>Comments:
                                     {{#each post.comments as |comment| }}
-                                    <div class="paper border">{{comment.content}}</div>
+                                    <h5 class="paper border">{{comment.content}}</h5>
                                     {{/each}}
-                                </div>  
-                                {{/if}}
+                                </div>
                             </div>
-                        </div>
+                            {{/if}}
                         </span>
                     </div>
                 </div>
                 {{/each}}
-            </div> 
-        </div>       
-                                      
-    </section>
-
+            </div>
+        </div>
+</section>
 {{/if}}
 
 <script src="/javascript/deletePost.js"></script>
