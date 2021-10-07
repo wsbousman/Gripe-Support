@@ -1,25 +1,23 @@
-<
 <html class="dark" lang="en">
 
-    <!-- hero sitch -->
-    <section class="flex-center row margin-top-large">
-        <div class="col flex-center">
-            <div class="aligned-right flex-spaces">
-                <div class="margin-top-large">
-                    <div class="aligned-middle" id="logo and posts">
-                        <img class="margin-small no-border" src="assets/images/logo/gripe support title@1x.png">
-                         {{!-- modals for adding encouragements and gripes --}}
-                        {{> addEncGripe}}
-                    </div>
+<!-- hero sitch -->
+<section class="flex-center row margin-top-large">
+    <div class="col flex-center">
+        <div class="aligned-right flex-spaces">
+            <div class="margin-top-large">
+                <div class="aligned-middle" id="logo and posts">
+                    <img class="margin-small no-border" src="assets/images/logo/gripe support title@1x.png">
+                    {{!-- modals for adding encouragements and gripes --}}
+                    {{> addEncGripe}}
                 </div>
             </div>
         </div>
-        <div class="col flex-center">
-            <div class="margin-top-large  no-border">
-                <div class="margin-small" id="heart-pink">
-                    <img class="no-border aligned-middle" src=" assets/images/hearts/edit-posts-heart.png">
+    </div>
+    <div class="col flex-center">
+        <div class="margin-top-large  no-border">
+            <div class="margin-small" id="heart-pink">
+                <img class="no-border aligned-middle" src=" assets/images/hearts/edit-posts-heart.png">
 
-                </div>
             </div>
         </div>
         </div>
@@ -49,11 +47,18 @@
                                 {{/if}}
                             </div>
                         </div>
-                        {{/each}}
+                        {{/if}}
+                        </span>
                     </div>
                 </div>
+                {{/each}}
             </div> 
-        </div>                
+        </div>       
+                                      
     </section>
-    {{/if}}
+
+{{/if}}
+
+<script src="/javascript/deletePost.js"></script>
+
 </html>

@@ -1,0 +1,127 @@
+<html="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css">
+  <link rel="stylesheet" href="./assets/css/stylesheet.css">
+  <link rel="./assets/css/stylesheet.css">
+  <link rel="stylesheet" href="./assets/css/stylesheet.css">
+  <title>gripe//support-homepage</title>
+
+</head>
+
+<body>
+  <!-- navigation bar -->
+  <section class="header">
+    <nav class="border fixed split-nav">
+      <div class="nav-brand padding-bottom">
+
+        <!-- log-in and sign-up modal -->
+        <label class="paper-btn btn-small logInBtn" for="modal-1">
+
+          <h4>
+            <a id="log">log in</a>
+          </h4>
+        </label>
+      </div>
+      <input class="modal-state" id="modal-1" type="checkbox">
+      <div class="modal">
+        <label class="modal-bg" for="modal-1"></label>
+        <div class="modal-body">
+          <label class="btn-close" for="modal-1">X</label>
+          <h4 class="modal-title">gripe//support</h4>
+          <h5 class="modal-subtitle">you need an account to make posts</h5>
+          <p class="modal-text">
+          <div class="form-group">
+            <label for="paperInputs1">Username</label>
+            <input class="input-block" type="text" placeholder="xxxxxxx@xxx.com" id="paperInputs1">
+          </div>
+          <div class="form-group">
+            <label for="paperInputs1">Password</label>
+            <input class="input-block" type="password" placeholder="password" id="paperInputs1">
+            <p></p>
+            <label class="aligned-right paper-btn logInBtn" for="submit-log-in">Log In</label>
+          </div>
+          <p>
+            <a href="./sign-up.html">Sign up </a>for an account
+          </p>
+        </div>
+      </div>
+
+      <!-- collapsible menu with links to other pages -->
+      <div class="collapsible">
+        <input id="collapsible1" type="checkbox" name="collapsible1">
+        <label class="paper-btn" for="collapsible1">
+          <h5 class="padding-none margin-small flex-edges" id="menu">menu</h5>
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </label>
+        <div class="collapsible-body">
+          <ul class="inline">
+            <li><a class="navLinkPurple" href="./gripes.handlebars">gripes</a></li>
+            <li><a class="navLinkPurple" href="./encouragements.html">encouragements</a></li>
+            <li><a href="">
+                <img class="aligned-middle paper-btn btn-small" id="little-purple"
+                  src="./assets/images/hearts/little-purple.png" class="no-border">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <section id="homepage">
+    <div class="col aligned-middle">
+      <img class="row margin-top-large padding-top-large no-border" id="hpLogo"
+        src="./assets/images/logo/homepage-title.png" alt="title logo">
+    </div>
+
+    <!-- mood to date -->
+    <section class="row flex-center">
+      <div class="col sm-4 homepageCard">
+        <div class="row flex-spaces child-borders child-shadows">
+          <div class="paper">
+            <img class="row no-border" id="homepageHeart" src="./assets/images/hearts/dashboard-heart.png"
+              alt="purple heart">
+            <!-- <div class="card-body"> -->
+            <h3 class="card-title">the mood to date:</h3>
+            <p class="card-text">
+              mostly warm with a chance of whinging</p>
+          </div>
+        </div>
+      </div>
+
+      <!--about section -->
+      <div class="col col-8 lg-6">
+        <div class="container paper border flex-center" id="aboutCard">
+          <div class="flex-spaces">
+            <h3 class="">who are we?</h3>
+            <h5 class="">Good question.</h5>
+            <p class="">We are the fussy, the frustrated, the bothered, the annoyed. We wish to
+              air our
+              grievances without judgment
+              and only receive simple validation in return. We appreciate positivity and
+              encouragements, but most of
+              all,
+              we
+              simply seek acceptance for our woes.</p>
+            <div>
+              <h5>Need to vent?</h5>
+              <p>
+                <a href="./sign-up.html">Sign up</a> and let it alllllll out. It's okay. We're
+                all here for you.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+  </section>
+</body>
+
+</html>

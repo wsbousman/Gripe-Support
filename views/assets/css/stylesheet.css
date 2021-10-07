@@ -16,7 +16,7 @@
     margin-top: 10%;
 }
 
-.homepageCard {
+.homepage {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,7 +33,7 @@
     background-color: #d8d0f6;
 }
 
-#pink {
+.pink {
     background-color: #f6d0d8;
 }
 
@@ -59,10 +59,6 @@
     color: #f6d0d8;
 }
 
-#encHeading {
-    margin-top: 11.5%;
-}
-
 #postPage {
     display: flex;
     flex-wrap: wrap;
@@ -83,9 +79,9 @@
 }
 
 textarea {
-    width: 100%;
-    height: 10em;
-    max-height: 20em;
+    width: 80%;
+    height: 5em;
+    max-height: 10em;
     resize: none;
 }
 
@@ -98,7 +94,7 @@ textarea {
     box-shadow: lightgray 15px 28px 25px -18px;
 }
 
-#deletePostBtn {
+.deletePostBtn {
     display: flex;
     justify-content: center;
     background-color: #f6d0d8;
@@ -107,7 +103,7 @@ textarea {
 }
 
 #signUpCard {
-    display: inline-block;
+    display: block;
     justify-content: center;
     margin-top: 10%;
 }
@@ -229,7 +225,7 @@ textarea {
     display: flex;
     justify-content: center;
     color: #474644;
-    box-shadow: #f6d0d1 15px 28px 25px -18px;
+    box-shadow: lightgray 15px 28px 25px -18px;
 }
 
 #commentEncHeader {
@@ -308,10 +304,6 @@ textarea {
 
 .navLinkGripe:hover {
     color:#cbdcf4;
-}
-
-#gripeHeading {
-    margin-top: 11.5%;
 }
 
 .gripes-title {

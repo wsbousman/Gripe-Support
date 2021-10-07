@@ -33,7 +33,7 @@
     background-color: #d8d0f6;
 }
 
-#pink {
+.pink {
     background-color: #f6d0d8;
 }
 
@@ -98,7 +98,7 @@ textarea {
     box-shadow: lightgray 15px 28px 25px -18px;
 }
 
-#deletePostBtn {
+.deletePostBtn {
     display: flex;
     justify-content: center;
     background-color: #f6d0d8;
@@ -223,7 +223,6 @@ textarea {
     display: flex;
     justify-content: center;
     color: #474644;
-    box-shadow: #f6d0d1 15px 28px 25px -18px;
 }
 
 #commentEncHeader {
