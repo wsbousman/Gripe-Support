@@ -1,4 +1,4 @@
-<html class="dark">
+<html class="dark" lang="en">
 
 <!-- hero sitch -->
 <section class="flex-center row margin-top-large">
@@ -20,7 +20,7 @@
 
             </div>
         </div>
-    </div>
+   </div>
 </section>
 
 {{#if posts.length}}
@@ -42,9 +42,9 @@
                         <span>
                             <h4 class="myPost padding paper border">{{post.content}}</h4>
                                                 
-                        <div class="pink">
-                            {{!-- <a href="#post-id" class="paper-btn btn-small">view post</a>
-                            <button type="delete" class="paper-btn btn-small" id="pink">delete</button> --}}
+                        <div class="">
+                                <a href="/dashboard/view/{{post.id}}" class="paper-btn btn-small">view post</a>
+                                <button type="submit" class="paper-btn btn-small delete-post-btn pink" id="{{post.id}}" onClick="reply_click(this.id)" >delete</button>
                             {{#if post.comments.length}}
                             <div>Comments:
                                 {{#each post.comments as |comment| }}
@@ -56,10 +56,12 @@
                         </span>
                     </div>
                 </div>
-                {{/each}}
-            </div>
-        </div>
-    </div>
-</section>
+            </div> 
+        </div>       
+                    
+                   
+    </section>
 {{/if}}
+
+<script src="/javascript/deletePost.js"></script>
 </html>

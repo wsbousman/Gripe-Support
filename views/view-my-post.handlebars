@@ -1,6 +1,7 @@
 <html class="dark" lang="en">
 
 <body class="dashboard">
+
     <!-- navigation bar -->
     <section class="flex-center row" id="gripeHeading">
         <div class="col flex-center">
@@ -15,54 +16,19 @@
                 </div>
             </div>
         </div>
-
-            <!-- log-out sitch -->
-            {{!-- <label class="paper-btn btn-small logout-btn" for="modal-1">
-                <h4>
-                    <a>log out</a>
-                </h4>
-            </label>
-            </div>
-
-            <!-- collapsible menu with links to other pages -->
-            <div class="collapsible">
-                <input id="collapsible1" type="checkbox" name="collapsible1">
-                <label class="paper-btn" id="menuButton" for="collapsible1">
-                    <h5 class="padding-none margin-small flex-edges">menu</h5>
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                    <div class="bar4"></div>
-                </label>
-                <div class="collapsible-body">
-                    <ul class="inline">
-                        <li><a class="navLink" href="./dashboard.html">my dashboard</a></li>
-                        <li><a class="navLink" href="./gripes.html">gripes</a></li>
-                        <li><a class="navLink" href="./encouragements.html">encouragements</a></li>
-                        <li><a href="./index.html">
-                                <img src="./assets/images/hearts/little-pink.png"
-                                    class="aligned-middle paper-btn btn-small no-border">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </section> --}}
-
     <section>
         <div class="col padding-small flex-center" id="postPage">
             <div class="aligned-middle margin-top-large">
                 <div class="margin-top-large padding-top-large">
                     <div id="logo and posts">
-                        <img class="row aligned-middle no-border" src="assets/images/logo/gripe support title@1x.png">
+                        <img class="row aligned-middle no-border" src="/assets/images/logo/gripe support title@1x.png">
                     </div>
                 </div>
             </div>
             <div class="flex-center">
                 <div class="padding-small no-border">
                     <div class="margin-small" id="heart and title">
-                        <img class="row aligned-middle no-border" src=" assets/images/hearts/edit-posts-heart.png">
+                        <img class="row aligned-middle no-border" src="/assets/images/hearts/edit-posts-heart.png">
                     </div>
                 </div>
             </div>
@@ -75,7 +41,7 @@
             <div class="paper border-2 padding-large">
                 <div class="">
                     <div class="text-box">
-                        <label for="postNumber">{{post.id}}</label>
+                        <label for="postNumber">The {{post.category.name}} you made on {{post.created_at}}</label>
                         <div>
                             <container class="myPost card paper border">
                                 <div class="card-text">{{post.content}}</div>
@@ -83,7 +49,7 @@
                         </div>
                     </div>
                     <p></p>
-                    <label type="submit" class="paper-btn border btn-small right" id="deletePostBtn">delete</label>
+                    <label type="submit" class="paper-btn border btn-small right deletePostBtn" id="{{post.id}}" onClick="reply_click(this.id)">delete</label>
                 </div>
             </div>
             <!-- hug counter -->
@@ -114,5 +80,7 @@
                 </button>
             </div>
         </div>
-    <script src="javascript/viewMyPost.js"></script>
+        <script src="/javascript/deletePost.js"></script>
+
+  
     </section>
